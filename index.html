@@ -397,10 +397,12 @@
     }
 
     /* Language visibility */
-    .lang-en { display: inline; }
-    .lang-kn { display: none; }
-    body.lang-kn .lang-en { display: none; }
-    body.lang-kn .lang-kn { display: inline; }
+.lang-en { display: inline; }
+.lang-kn { display: none; }
+
+/* When body has kn-mode, show Kannada & hide English */
+body.kn-mode .lang-en { display: none; }
+body.kn-mode .lang-kn { display: inline; }
   </style>
 </head>
 <body class="lang-en">

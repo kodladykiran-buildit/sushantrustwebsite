@@ -1,0 +1,560 @@
+<!-- =============================================
+SUSHAN TRUST – OPTION 3 EXPORTS
+A) Plain HTML (single file, no external libs) — paste into GoDaddy Website Builder (HTML block) or upload as index.html
+B) Next.js (App Router) page – drop into app/page.tsx on a Tailwind project deployed to Vercel
+============================================= -->
+
+<!-- =====================
+A) PLAIN HTML (single file)
+====================== -->
+<!-- File: index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sushan Trust, Kodlady – STEM & Environment</title>
+  <meta name="description" content="Sushan Trust, Kodlady – a family-driven philanthropic trust fostering education in STEM and Environmental Studies across Byndoor and Kundapur taluks." />
+  <style>
+    :root{
+      --emerald-700:#047857; --emerald-600:#059669; --emerald-50:#ecfdf5; --sky-100:#e0f2fe; --text:#111827; --muted:#4b5563; --bg:#ffffff; --card:#ffffff; --border:#d1fae5
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial; color:var(--text); background:var(--bg)}
+    a{color:var(--emerald-700); text-decoration:none} a:hover{text-decoration:underline}
+    .container{max-width:1120px;margin:0 auto;padding:0 1rem}
+    /* Nav */
+    .nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:saturate(140%) blur(6px);border-bottom:1px solid #e5f5ef}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .brand{display:flex;align-items:center;gap:.6rem}
+    .brand-logo{display:grid;place-content:center;width:36px;height:36px;border-radius:12px;background:var(--emerald-700);color:#fff;box-shadow:0 6px 14px rgba(4,120,87,.25)}
+    .brand-txt{line-height:1}
+    .brand-txt .title{font-size:14px;font-weight:700}
+    .brand-txt .sub{font-size:10px;letter-spacing:.08em;color:var(--emerald-700);text-transform:uppercase}
+    .nav-links{display:none;gap:1rem;color:#374151;font-weight:600}
+    .cta{display:none}
+    @media(min-width:768px){.nav-links{display:flex}.cta{display:block}}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.72rem 1.1rem;border-radius:18px;border:1px solid var(--emerald-700);font-weight:700}
+    .btn-primary{background:var(--emerald-700);color:#fff;border-color:var(--emerald-700);box-shadow:0 10px 18px rgba(4,120,87,.18)}
+    .btn-primary:hover{filter:brightness(.95);text-decoration:none}
+    /* Hero */
+    .hero{background:linear-gradient(180deg,#ecfdf5, #ffffff); padding:64px 0}
+    .grid{display:grid;gap:2rem}
+    @media(min-width:900px){.grid-2{grid-template-columns:1fr 1fr}}
+    .pill{display:inline-flex;align-items:center;gap:.5rem;background:#fff;padding:.35rem .6rem;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.08em;color:var(--emerald-700);box-shadow:0 1px 3px rgba(0,0,0,.06)}
+    h1{font-size:40px;margin:12px 0 0}
+    .lead{color:#475569;max-width:560px}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px;max-width:520px}
+    .stat{background:rgba(255,255,255,.8);backdrop-filter:blur(6px);padding:18px;border-radius:16px;text-align:center;border:1px solid #eafaf2}
+    .stat .v{font-size:28px;font-weight:800}
+    .card{position:relative;overflow:hidden;border-radius:22px;box-shadow:0 20px 40px rgba(4,120,87,.08);border:1px solid #eafaf2}
+    .card img{display:block;width:100%;height:100%;object-fit:cover}
+    .card-overlay{position:absolute;inset:0;background:linear-gradient(45deg,rgba(4,120,87,.15),rgba(2,132,199,.15))}
+    .badge{background:rgba(255,255,255,.85);backdrop-filter:blur(4px);border-radius:16px;padding:16px;text-align:center}
+    /* Sections */
+    section{padding:72px 0}
+    .eyebrow{text-transform:uppercase;color:var(--emerald-700);font-weight:800;letter-spacing:.08em;font-size:12px;margin-bottom:6px;text-align:center}
+    .title{font-size:32px;text-align:center;margin:0}
+    .subtitle{text-align:center;max-width:720px;margin:10px auto 28px;color:#475569}
+    .cols-2{display:grid;gap:2rem} @media(min-width:900px){.cols-2{grid-template-columns:1.2fr .8fr}}
+    .feature{background:var(--emerald-50);border:1px solid var(--border);border-radius:18px;padding:18px}
+    .kards{display:grid;gap:16px} @media(min-width:900px){.kards{grid-template-columns:repeat(3,1fr)}}
+    .kard{border:1px solid var(--border);border-radius:22px;background:#fff;padding:18px;box-shadow:0 6px 16px rgba(0,0,0,.03)}
+    .kard h3{margin:6px 0 4px;font-size:18px}
+    .cta-bar{display:grid;gap:1rem;padding:22px;border:1px solid var(--border);border-radius:22px;background:#f0fdf4}@media(min-width:900px){.cta-bar{grid-template-columns:2fr 1fr;align-items:center}}
+    .three{display:grid;gap:16px}@media(min-width:900px){.three{grid-template-columns:repeat(3,1fr)}}
+    .quote{border:1px solid var(--border);border-radius:22px;background:#fff;padding:18px}
+    /* Contact */
+    .contact{background:var(--emerald-700);color:#eafaf2}
+    .contact .card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)}
+    label{font-size:12px;color:#d1fae5}
+    input,textarea{width:100%;margin-top:6px;border:0;border-radius:12px;padding:12px;background:rgba(255,255,255,.9)}
+    footer{border-top:1px solid #eafaf2;padding:24px 0}
+  </style>
+</head>
+<body>
+  <!-- Nav -->
+  <div class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#home">
+        <div class="brand-logo">🌿</div>
+        <div class="brand-txt"><div class="title">Sushan Trust</div><div class="sub">Kodlady • Kundapur</div></div>
+      </a>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#vision">Vision</a>
+        <a href="#programs">Programs</a>
+        <a href="#stories">Stories</a>
+        <a href="#involved">Get Involved</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="cta"><a class="btn btn-primary" href="#apply">Apply for Scholarship →</a></div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="container grid grid-2">
+      <div>
+        <div class="pill">✨ Empowering Rural Talent • STEM • Environment</div>
+        <h1>Sushan Trust, Kodlady</h1>
+        <p class="lead">A family-driven philanthropic trust fostering education in <strong>STEM</strong> and <strong>Environmental Studies</strong> across Byndoor and Kundapur taluks. We nurture curiosity, support academic excellence, and champion sustainability.</p>
+        <div style="margin-top:14px;display:flex;gap:.6rem;flex-wrap:wrap">
+          <a class="btn btn-primary" href="#vision">Explore Our Mission →</a>
+          <a class="btn" href="#programs">View Programs</a>
+        </div>
+        <div class="stats">
+          <div class="stat"><div class="v">150+</div><div class="l">Students Reached</div></div>
+          <div class="stat"><div class="v">25+</div><div class="l">Workshops & Camps</div></div>
+          <div class="stat"><div class="v">6</div><div class="l">Partner Institutions</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-overlay"></div>
+          <img alt="Coastal Karnataka and STEM" src="https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?q=80&w=1200&auto=format&fit=crop"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <div class="eyebrow">Who We Are</div>
+      <h2 class="title">Rooted in Coastal Karnataka. Driven by Purpose.</h2>
+      <p class="subtitle">Headquartered at Kodlady, Kundapur taluk (Udupi), with a focused commitment to Byndoor and Kundapur communities.</p>
+      <div class="cols-2">
+        <div>
+          <p>Sushan Trust is a family-driven philanthropic initiative dedicated to fostering education and innovation in STEM (Science, Technology, Engineering, and Mathematics) and Environmental Studies. We believe education and environmental awareness are cornerstones of societal progress, and we exist to empower individuals and initiatives that carry these values forward.</p>
+          <ul>
+            <li>Support academic excellence in core STEM and environmental disciplines.</li>
+            <li>Encourage innovation to address real-world environmental challenges.</li>
+            <li>Empower contributors and talented individuals through recognition and mentorship.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="kards">
+            <div class="feature"><strong>🎓 Academic Support</strong><div>Scholarships and financial assistance for deserving students.</div></div>
+            <div class="feature"><strong>🧪 STEM Awareness</strong><div>Workshops, labs and guidance to ignite curiosity.</div></div>
+            <div class="feature"><strong>🌿 Environment</strong><div>Awareness campaigns and sustainability drives.</div></div>
+            <div class="feature"><strong>📚 Research & Publications</strong><div>Funding local research and knowledge dissemination.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision -->
+  <section id="vision" style="background:linear-gradient(#ffffff,#ecfdf5)">
+    <div class="container">
+      <div class="eyebrow">Vision & Mission</div>
+      <h2 class="title">A Sustainable Future Through Education and Innovation</h2>
+      <p class="subtitle">Access to STEM and Environmental Studies must be equitable, inspiring innovations that benefit society and the planet.</p>
+      <div class="kards">
+        <div class="kard"><div class="badge">🎓</div><h3>Education</h3><p>Supporting academic excellence in core STEM and environmental disciplines.</p></div>
+        <div class="kard"><div class="badge">🧪</div><h3>Innovation</h3><p>Encouraging creative problem-solving for sustainable solutions.</p></div>
+        <div class="kard"><div class="badge">🤝</div><h3>Empowerment</h3><p>Recognizing and mentoring individuals driving positive change.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs -->
+  <section id="programs">
+    <div class="container">
+      <div class="eyebrow">Our Work</div>
+      <h2 class="title">From Classrooms to Clean Rivers</h2>
+      <p class="subtitle">Programs that translate purpose into measurable impact.</p>
+      <div class="kards" style="grid-template-columns:repeat(4,1fr)">
+        <div class="kard"><div class="badge">🎓</div><h3>Scholarships</h3><p>Financial support for deserving students in STEM and environmental streams.</p></div>
+        <div class="kard"><div class="badge">🧪</div><h3>STEM Camps</h3><p>Hands-on workshops that ignite curiosity and guide career aspirations.</p></div>
+        <div class="kard"><div class="badge">🌿</div><h3>Eco-Drives</h3><p>Tree planting, waste segregation, and sustainability awareness.</p></div>
+        <div class="kard"><div class="badge">📚</div><h3>Research</h3><p>Funding local studies and sharing knowledge via reports and media.</p></div>
+      </div>
+
+      <div id="apply" class="cta-bar" style="margin-top:20px">
+        <div>
+          <h3 style="margin:0;font-size:20px">Apply for Scholarship / Mentorship</h3>
+          <p style="margin:6px 0 0;color:#334155">Open to students from Byndoor and Kundapur taluks pursuing core STEM or Environmental Studies.</p>
+        </div>
+        <div style="text-align:right"><a class="btn btn-primary" href="#contact">Submit Interest →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stories -->
+  <section id="stories" style="background:linear-gradient(#ecfdf5,#ffffff)">
+    <div class="container">
+      <div class="eyebrow">Stories</div>
+      <h2 class="title">Local Voices. Lasting Impact.</h2>
+      <p class="subtitle">Snippets from students, teachers, and partners who make this journey meaningful.</p>
+      <div class="three">
+        <div class="quote">“I was the first in my school to present at a science fair—thanks to Sushan Trust!”<div style="margin-top:8px;color:var(--emerald-700);font-weight:700">— Ankita, Class 10</div></div>
+        <div class="quote">“Our eco-club planted 300 saplings this monsoon and learned waste segregation.”<div style="margin-top:8px;color:var(--emerald-700);font-weight:700">— Teacher, Byndoor Govt. School</div></div>
+        <div class="quote">“The scholarship helped me join a pre-university science program in Kundapur.”<div style="margin-top:8px;color:var(--emerald-700);font-weight:700">— Rahul, PUC Student</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Get Involved -->
+  <section id="involved">
+    <div class="container">
+      <div class="eyebrow">Get Involved</div>
+      <h2 class="title">Join Hands for a Greener, Smarter Tomorrow</h2>
+      <p class="subtitle">Whether you’re an educator, professional, or a well-wisher—there’s a role for you.</p>
+      <div class="three">
+        <div class="kard"><div class="badge">👥</div><h3>Partner with Us</h3><p>Schools, colleges, and NGOs can collaborate on STEM and eco initiatives.</p><a class="btn btn-primary" href="#contact">Partner →</a></div>
+        <div class="kard"><div class="badge">💚</div><h3>Volunteer</h3><p>Mentor students, conduct workshops, or help run events in your locality.</p><a class="btn btn-primary" href="#contact">Volunteer →</a></div>
+        <div class="kard"><div class="badge">🌿</div><h3>Donate / Contribute</h3><p>Support scholarships, research and environmental campaigns.</p><a class="btn btn-primary" href="#contact">Donate →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="eyebrow" style="color:#d1fae5">Contact Us</div>
+      <h2 class="title" style="color:#ecfdf5">Let’s Collaborate for Change</h2>
+      <p class="subtitle" style="color:#d1fae5">Based in Kodlady, Kundapur Taluk, Udupi District. We’re happy to partner with institutions and individuals across Coastal Karnataka.</p>
+      <div class="grid grid-2">
+        <div class="card" style="padding:18px;color:#ecfdf5">
+          <p><strong>📍 Address</strong><br/>Kodlady, Kundapur Taluk, Udupi District, Karnataka</p>
+          <p><strong>✉️ Email</strong><br/>info@sushantrustkodlady.com</p>
+          <p><strong>📞 Phone</strong><br/>+91-XXXXXXXXXX</p>
+        </div>
+        <form onsubmit="event.preventDefault(); alert('Thanks! We will get back to you.');">
+          <label>Name</label>
+          <input placeholder="Your name" />
+          <label>Email</label>
+          <input type="email" placeholder="you@example.com" />
+          <label>Message</label>
+          <textarea rows="4" placeholder="Tell us how you'd like to collaborate"></textarea>
+          <div style="margin-top:10px"><button class="btn btn-primary" type="submit">Send Message →</button></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container" style="display:grid;gap:1rem;align-items:center;grid-template-columns:1fr auto 1fr">
+      <div style="display:flex;align-items:center;gap:.6rem"><div class="brand-logo">🌿</div><div><div class="title" style="font-size:14px">Sushan Trust, Kodlady</div><div class="sub">Education • STEM • Environment</div></div></div>
+      <div style="text-align:center;color:#475569">© <span id="yr"></span> Sushan Trust. All rights reserved.</div>
+      <div style="text-align:right"><a href="#">Privacy Policy</a></div>
+    </div>
+  </footer>
+  <script>document.getElementById('yr').textContent=new Date().getFullYear()</script>
+</body>
+</html>
+
+
+
+/* =============================
+B) NEXT.JS (APP ROUTER) PAGE
+============================= */
+// File: app/page.tsx
+// Prereqs: Next.js 14+, Tailwind CSS installed (npx create-next-app@latest then `with-tailwind`)
+// Replace placeholder email/phone. Images use Unsplash; swap with your own.
+
+export const metadata = {
+  title: "Sushan Trust, Kodlady – STEM & Environment",
+  description:
+    "A family-driven philanthropic trust fostering education in STEM and Environmental Studies across Byndoor and Kundapur taluks.",
+};
+
+function Container({ children, className = "" }: React.PropsWithChildren<{ className?: string }>) {
+  return <div className={`mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 ${className}`}>{children}</div>;
+}
+
+function Button({ children, href = "#", variant = "primary", className = "" }: any) {
+  const base = "inline-flex items-center gap-2 rounded-2xl px-5 py-3 font-semibold transition";
+  const styles =
+    variant === "primary"
+      ? "bg-emerald-700 text-white shadow-lg shadow-emerald-700/20 hover:translate-y-[-1px] hover:bg-emerald-800 active:translate-y-0"
+      : "border border-emerald-700 text-emerald-800 hover:bg-emerald-50";
+  return (
+    <a href={href} className={`${base} ${styles} ${className}`}>
+      {children} <span>→</span>
+    </a>
+  );
+}
+
+export default function Page() {
+  return (
+    <div className="min-h-screen scroll-smooth bg-white text-gray-900">
+      {/* NAV */}
+      <header className="sticky top-0 z-40 w-full border-b border-emerald-100 bg-white/80 backdrop-blur">
+        <Container className="flex h-16 items-center justify-between">
+          <a href="#home" className="group flex items-center gap-3">
+            <div className="grid h-9 w-9 place-content-center rounded-xl bg-emerald-700 text-white shadow">
+              <span>🌿</span>
+            </div>
+            <div className="leading-tight">
+              <p className="text-sm font-semibold text-gray-900">Sushan Trust</p>
+              <p className="text-[11px] uppercase tracking-wider text-emerald-700">Kodlady • Kundapur</p>
+            </div>
+          </a>
+          <nav className="hidden items-center gap-6 text-sm font-medium text-gray-700 md:flex">
+            <a href="#about" className="hover:text-emerald-800">About</a>
+            <a href="#vision" className="hover:text-emerald-800">Vision</a>
+            <a href="#programs" className="hover:text-emerald-800">Programs</a>
+            <a href="#stories" className="hover:text-emerald-800">Stories</a>
+            <a href="#involved" className="hover:text-emerald-800">Get Involved</a>
+            <a href="#contact" className="hover:text-emerald-800">Contact</a>
+          </nav>
+          <div className="hidden md:block">
+            <Button href="#apply">Apply for Scholarship</Button>
+          </div>
+        </Container>
+      </header>
+
+      {/* HERO */}
+      <section id="home" className="relative isolate overflow-hidden bg-gradient-to-b from-emerald-50 via-white to-white">
+        <Container className="grid items-center gap-10 py-16 md:grid-cols-2 md:py-24">
+          <div>
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-emerald-700 shadow-sm">
+              ✨ Empowering Rural Talent • STEM • Environment
+            </span>
+            <h1 className="text-4xl font-extrabold leading-tight text-gray-900 md:text-5xl">Sushan Trust, Kodlady</h1>
+            <p className="mt-4 max-w-xl text-gray-600">
+              A family-driven philanthropic trust fostering education in <strong>STEM</strong> and <strong>Environmental Studies</strong> across Byndoor and Kundapur taluks. We nurture curiosity, support academic excellence, and champion sustainability.
+            </p>
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <Button href="#vision">Explore Our Mission</Button>
+              <Button href="#programs" variant="secondary">View Programs</Button>
+            </div>
+            <div className="mt-10 grid max-w-lg grid-cols-3 gap-4">
+              <div className="rounded-2xl bg-white/70 p-6 text-center shadow-sm backdrop-blur">
+                <div className="text-3xl font-extrabold text-gray-900 md:text-4xl">150+</div>
+                <div className="mt-1 text-sm text-gray-600">Students Reached</div>
+              </div>
+              <div className="rounded-2xl bg-white/70 p-6 text-center shadow-sm backdrop-blur">
+                <div className="text-3xl font-extrabold text-gray-900 md:text-4xl">25+</div>
+                <div className="mt-1 text-sm text-gray-600">Workshops & Camps</div>
+              </div>
+              <div className="rounded-2xl bg-white/70 p-6 text-center shadow-sm backdrop-blur">
+                <div className="text-3xl font-extrabold text-gray-900 md:text-4xl">6</div>
+                <div className="mt-1 text-sm text-gray-600">Partner Institutions</div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl shadow-xl ring-1 ring-emerald-100">
+              <div className="absolute inset-0 bg-gradient-to-tr from-emerald-700/20 via-transparent to-sky-600/20" />
+              <img
+                alt="Coastal Karnataka and STEM"
+                className="h-full w-full object-cover"
+                src="https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?q=80&w=1200&auto=format&fit=crop"
+              />
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* ABOUT */}
+      <section id="about" className="bg-white py-16 md:py-24">
+        <Container>
+          <div className="mb-10 text-center">
+            <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-emerald-700">Who We Are</p>
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">Rooted in Coastal Karnataka. Driven by Purpose.</h2>
+            <p className="mx-auto mt-3 max-w-2xl text-gray-600">Headquartered at Kodlady, Kundapur taluk (Udupi), with a focused commitment to Byndoor and Kundapur communities.</p>
+          </div>
+          <div className="grid items-center gap-8 md:grid-cols-2">
+            <div className="prose max-w-none text-gray-700">
+              <p>
+                Sushan Trust is a family-driven philanthropic initiative dedicated to fostering education and innovation in STEM (Science, Technology, Engineering, and Mathematics) and Environmental Studies. We believe education and environmental awareness are cornerstones of societal progress, and we exist to empower individuals and initiatives that carry these values forward.
+              </p>
+              <ul className="list-disc pl-5">
+                <li>Support academic excellence in core STEM and environmental disciplines.</li>
+                <li>Encourage innovation to address real-world environmental challenges.</li>
+                <li>Empower contributors and talented individuals through recognition and mentorship.</li>
+              </ul>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="rounded-2xl bg-emerald-50 p-5">
+                <div className="font-semibold">🎓 Academic Support</div>
+                <p className="mt-2 text-sm text-gray-600">Scholarships and financial assistance for deserving students.</p>
+              </div>
+              <div className="rounded-2xl bg-emerald-50 p-5">
+                <div className="font-semibold">🧪 STEM Awareness</div>
+                <p className="mt-2 text-sm text-gray-600">Workshops, labs and guidance to ignite curiosity.</p>
+              </div>
+              <div className="rounded-2xl bg-emerald-50 p-5">
+                <div className="font-semibold">🌿 Environment</div>
+                <p className="mt-2 text-sm text-gray-600">Awareness campaigns and sustainability drives.</p>
+              </div>
+              <div className="rounded-2xl bg-emerald-50 p-5">
+                <div className="font-semibold">📚 Research & Publications</div>
+                <p className="mt-2 text-sm text-gray-600">Funding local research and knowledge dissemination.</p>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* VISION */}
+      <section id="vision" className="bg-gradient-to-b from-white to-emerald-50 py-16 md:py-24">
+        <Container>
+          <div className="mb-10 text-center">
+            <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-emerald-700">Vision & Mission</p>
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">A Sustainable Future Through Education and Innovation</h2>
+            <p className="mx-auto mt-3 max-w-2xl text-gray-600">Access to STEM and Environmental Studies must be equitable, inspiring innovations that benefit society and the planet.</p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {["Education","Innovation","Empowerment"].map((t,i)=> (
+              <div key={i} className="rounded-3xl border border-emerald-100 bg-white p-6 shadow-sm">
+                <div className="mb-3 inline-flex rounded-2xl bg-emerald-50 p-3">{["🎓","🧪","🤝"][i]}</div>
+                <h3 className="text-lg font-semibold text-gray-900">{t}</h3>
+                <p className="mt-1 text-gray-600">{
+                  [
+                    "Supporting academic excellence in core STEM and environmental disciplines.",
+                    "Encouraging creative problem-solving for sustainable solutions.",
+                    "Recognizing and mentoring individuals driving positive change.",
+                  ][i]
+                }</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* PROGRAMS */}
+      <section id="programs" className="bg-white py-16 md:py-24">
+        <Container>
+          <div className="mb-10 text-center">
+            <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-emerald-700">Our Work</p>
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">From Classrooms to Clean Rivers</h2>
+            <p className="mx-auto mt-3 max-w-2xl text-gray-600">Programs that translate purpose into measurable impact.</p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {["Scholarships","STEM Camps","Eco-Drives","Research"].map((title, i)=> (
+              <div key={i} className="rounded-3xl border border-emerald-100 bg-gradient-to-br from-white to-emerald-50/40 p-6 shadow-sm">
+                <div className="mb-3 inline-flex rounded-2xl bg-emerald-600/10 p-3">{["🎓","🧪","🌿","📚"][i]}</div>
+                <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
+                <p className="mt-1 text-gray-600">{
+                  [
+                    "Financial support for deserving students in STEM and environmental streams.",
+                    "Hands-on workshops that ignite curiosity and guide career aspirations.",
+                    "Tree planting, waste segregation, and sustainability awareness.",
+                    "Funding local studies and sharing knowledge via reports and media.",
+                  ][i]
+                }</p>
+                <a href="#" className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-emerald-800 hover:underline">Know More →</a>
+              </div>
+            ))}
+          </div>
+
+          <div id="apply" className="mt-12 grid items-center gap-6 rounded-3xl border border-emerald-100 bg-emerald-600/5 p-8 md:grid-cols-3">
+            <div className="md:col-span-2">
+              <h3 className="text-xl font-semibold text-gray-900">Apply for Scholarship / Mentorship</h3>
+              <p className="mt-1 text-gray-700">Open to students from Byndoor and Kundapur taluks pursuing core STEM or Environmental Studies.</p>
+            </div>
+            <div className="text-left md:text-right">
+              <Button href="#contact">Submit Interest</Button>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* STORIES */}
+      <section id="stories" className="bg-gradient-to-b from-emerald-50 to-white py-16 md:py-24">
+        <Container>
+          <div className="mb-10 text-center">
+            <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-emerald-700">Stories</p>
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">Local Voices. Lasting Impact.</h2>
+            <p className="mx-auto mt-3 max-w-2xl text-gray-600">Snippets from students, teachers, and partners who make this journey meaningful.</p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {[
+              { quote: "I was the first in my school to present at a science fair—thanks to Sushan Trust!", name: "Ankita, Class 10" },
+              { quote: "Our eco-club planted 300 saplings this monsoon and learned waste segregation.", name: "Teacher, Byndoor Govt. School" },
+              { quote: "The scholarship helped me join a pre-university science program in Kundapur.", name: "Rahul, PUC Student" },
+            ].map((s,i)=>(
+              <div key={i} className="rounded-3xl border border-emerald-100 bg-white p-6 shadow-sm">
+                <p className="text-gray-700">“{s.quote}”</p>
+                <p className="mt-3 text-sm font-semibold text-emerald-800">— {s.name}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* GET INVOLVED */}
+      <section id="involved" className="bg-white py-16 md:py-24">
+        <Container>
+          <div className="mb-10 text-center">
+            <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-emerald-700">Get Involved</p>
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">Join Hands for a Greener, Smarter Tomorrow</h2>
+            <p className="mx-auto mt-3 max-w-2xl text-gray-600">Whether you’re an educator, professional, or a well-wisher—there’s a role for you.</p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {[
+              { icon:"👥", title:"Partner with Us", desc:"Schools, colleges, and NGOs can collaborate on STEM and eco initiatives." },
+              { icon:"💚", title:"Volunteer", desc:"Mentor students, conduct workshops, or help run events in your locality." },
+              { icon:"🌿", title:"Donate / Contribute", desc:"Support scholarships, research and environmental campaigns." },
+            ].map((c,i)=>(
+              <div key={i} className="rounded-3xl border border-emerald-100 bg-gradient-to-br from-white to-emerald-50/40 p-6 shadow-sm">
+                <div className="mb-3 inline-flex rounded-2xl bg-emerald-600/10 p-3">{c.icon}</div>
+                <h3 className="text-lg font-semibold text-gray-900">{c.title}</h3>
+                <p className="mt-1 text-gray-600">{c.desc}</p>
+                <Button className="mt-4" href="#contact">{["Partner","Volunteer","Donate"][i]}</Button>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* CONTACT */}
+      <section id="contact" className="bg-emerald-700 py-16 text-emerald-50 md:py-24">
+        <Container>
+          <div className="mb-8 text-center">
+            <p className="text-sm font-semibold uppercase tracking-wider text-emerald-100">Contact Us</p>
+            <h2 className="text-3xl font-bold md:text-4xl">Let’s Collaborate for Change</h2>
+            <p className="mx-auto mt-3 max-w-2xl text-emerald-100">Based in Kodlady, Kundapur Taluk, Udupi District. We’re happy to partner with institutions and individuals across Coastal Karnataka.</p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-5">
+            <div className="rounded-3xl bg-white/5 p-6 md:col-span-2">
+              <p className="font-semibold">📍 Address</p>
+              <p className="text-emerald-100">Kodlady, Kundapur Taluk, Udupi District, Karnataka</p>
+              <p className="mt-4 font-semibold">✉️ Email</p>
+              <p className="text-emerald-100">info@sushantrustkodlady.com</p>
+              <p className="mt-4 font-semibold">📞 Phone</p>
+              <p className="text-emerald-100">+91-XXXXXXXXXX</p>
+            </div>
+            <form className="md:col-span-3" onSubmit={(e)=>{e.preventDefault(); alert('Thanks! We will get back to you.')}}>
+              <div className="grid gap-4 md:grid-cols-2">
+                <div>
+                  <label className="text-sm text-emerald-100">Name</label>
+                  <input className="mt-1 w-full rounded-xl border-0 bg-white/90 p-3 text-gray-900 shadow-sm outline-none ring-1 ring-transparent focus:ring-emerald-400" placeholder="Your name" />
+                </div>
+                <div>
+                  <label className="text-sm text-emerald-100">Email</label>
+                  <input type="email" className="mt-1 w-full rounded-xl border-0 bg-white/90 p-3 text-gray-900 shadow-sm outline-none ring-1 ring-transparent focus:ring-emerald-400" placeholder="you@example.com" />
+                </div>
+                <div className="md:col-span-2">
+                  <label className="text-sm text-emerald-100">Message</label>
+                  <textarea className="mt-1 w-full rounded-xl border-0 bg-white/90 p-3 text-gray-900 shadow-sm outline-none ring-1 ring-transparent focus:ring-emerald-400" rows={4} placeholder="Tell us how you'd like to collaborate" />
+                </div>
+              </div>
+              <Button className="mt-4">Send Message</Button>
+            </form>
+          </div>
+        </Container>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="border-t border-emerald-100 bg-white py-10">
+        <Container className="grid items-center gap-6 md:grid-cols-3">
+          <div className="flex items-center gap-3">
+            <div className="grid h-9 w-9 place-content-center rounded-xl bg-emerald-700 text-white shadow">🌿</div>
+            <div>
+              <p className="text-sm font-semibold text-gray-900">Sushan Trust, Kodlady</p>
+              <p className="text-xs text-gray-500">Education • STEM • Environment</p>
+            </div>
+          </div>
+          <div className="text-center text-sm text-gray-600">© {new Date().getFullYear()} Sushan Trust. All rights reserved.</div>
+          <div className="text-right text-sm"><a href="#" className="text-emerald-800 hover:underline">Privacy Policy</a></div>
+        </Container>
+      </footer>
+    </div>
+  );
+}

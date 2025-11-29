@@ -792,14 +792,21 @@ body.kn-mode .lang-kn { display: inline; }
     document.getElementById('year').textContent = new Date().getFullYear();
 
     // language toggle
-    const buttons = document.querySelectorAll('.lang-btn');
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const lang = btn.getAttribute('data-lang');
-        document.body.classList.toggle('lang-kn', lang === 'kn');
-        buttons.forEach(b => b.classList.toggle('active', b === btn));
-      });
-    });
+const buttons = document.querySelectorAll('.lang-btn');
+buttons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const lang = btn.getAttribute('data-lang');
+
+    // English = remove kn-mode, Kannada = add kn-mode
+    if (lang === 'kn') {
+      document.body.classList.add('kn-mode');
+    } else {
+      document.body.classList.remove('kn-mode');
+    }
+
+    buttons.forEach(b => b.classList.toggle('active', b === btn));
+  });
+});
   </script>
 </body>
 </html>

@@ -4,423 +4,281 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sushan Trust, Kodlady – STEM & Environment</title>
-  <meta name="description" content="Sushan Trust, Kodlady – a family driven philanthropic trust nurturing STEM education and environmental awareness in coastal Karnataka." />
+  <meta name="description" content="Sushan Trust, Kodlady – a family-driven philanthropic trust nurturing STEM education and environmental awareness in Udupi district, coastal Karnataka." />
+
   <style>
-    :root {
-      --bg: #f5f5f7;
-      --card: #ffffff;
-      --primary: #065f46;
-      --primary-soft: #ecfdf5;
-      --accent: #0f766e;
-      --text-main: #0f172a;
-      --text-muted: #4b5563;
-      --border: #e5e7eb;
-      --radius-lg: 18px;
-      --shadow-soft: 0 14px 40px rgba(15, 23, 42, 0.06);
+    :root{
+      --bg:#f5f5f7;
+      --card:#ffffff;
+      --primary:#065f46;
+      --primary-2:#0f766e;
+      --primary-soft:#ecfdf5;
+      --text-main:#0f172a;
+      --text-muted:#4b5563;
+      --border:#e5e7eb;
+      --radius-lg:18px;
+      --shadow-soft:0 14px 40px rgba(15,23,42,.06);
+      --shadow-mid:0 18px 50px rgba(15,23,42,.10);
     }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      color: var(--text-main);
-      background: radial-gradient(circle at top, #e0f2fe 0, #f5f5f7 40%, #f9fafb 100%);
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      color:var(--text-main);
+      background:radial-gradient(circle at top, #e0f2fe 0, var(--bg) 40%, #f9fafb 100%);
     }
-    a { color: inherit; text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    a{color:inherit;text-decoration:none}
+    a:hover{text-decoration:underline}
 
-    .container {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 0 1.25rem;
-    }
+    .container{max-width:1080px;margin:0 auto;padding:0 1.25rem}
+    section{padding:64px 0}
 
-    /* NAVBAR */
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      backdrop-filter: blur(10px);
-      background: rgba(245, 245, 247, 0.9);
-      border-bottom: 1px solid rgba(209, 213, 219, 0.7);
+    /* NAV */
+    .nav{
+      position:sticky;top:0;z-index:40;
+      backdrop-filter:blur(10px);
+      background:rgba(245,245,247,.9);
+      border-bottom:1px solid rgba(209,213,219,.7);
     }
-    .nav-inner {
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    .nav-inner{height:68px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .brand{display:flex;align-items:center;gap:.7rem;min-width:220px}
+    .logo{
+      width:38px;height:38px;border-radius:10px;
+      background:linear-gradient(135deg,#047857,#22c55e);
+      display:grid;place-items:center;
+      overflow:hidden;
+      box-shadow:0 10px 20px rgba(4,120,87,.22);
+      flex:0 0 auto;
     }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
+    .logo img{width:100%;height:100%;object-fit:contain;background:#fff}
+    .brand-text-main{font-size:14px;font-weight:800;letter-spacing:.2px}
+    .brand-text-sub{font-size:11px;text-transform:uppercase;letter-spacing:.10em;color:var(--primary)}
+    .nav-links{
+      display:none;gap:1.4rem;font-size:14px;color:var(--text-muted);
+      align-items:center;
     }
-    .brand-mark {
-      width: 34px;
-      height: 34px;
-      display: grid;
-      place-items: center;
-      border-radius: 999px;
-      background: linear-gradient(135deg, #047857, #22c55e);
-      color: #ffffff;
-      font-size: 18px;
-      box-shadow: 0 10px 20px rgba(4, 120, 87, 0.35);
-    }
-    .brand-text-main {
-      font-size: 14px;
-      font-weight: 700;
-    }
-    .brand-text-sub {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--primary);
-    }
+    .nav-links a:hover{color:var(--primary);text-decoration:none}
+    @media (min-width: 820px){.nav-links{display:flex}}
 
-    .nav-links {
-      display: none;
-      gap: 1.5rem;
-      font-size: 14px;
-      color: var(--text-muted);
+    .lang-toggle{
+      display:flex;align-items:center;gap:.25rem;
+      background:#e5e7eb;border-radius:999px;padding:2px;
     }
-    .nav-links a:hover {
-      color: var(--primary);
-      text-decoration: none;
+    .lang-btn{
+      border:none;background:transparent;
+      padding:5px 10px;border-radius:999px;
+      cursor:pointer;font-size:12px;color:#4b5563;
     }
-
-    .lang-toggle {
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
-      font-size: 13px;
-      background: #e5e7eb;
-      border-radius: 999px;
-      padding: 2px;
-    }
-    .lang-btn {
-      border: none;
-      background: transparent;
-      padding: 4px 10px;
-      border-radius: 999px;
-      cursor: pointer;
-      font-size: 12px;
-      color: #4b5563;
-    }
-    .lang-btn.active {
-      background: #ffffff;
-      color: var(--primary);
-      font-weight: 600;
-      box-shadow: 0 0 0 1px rgba(16, 185, 129, 0.12);
-    }
-
-    @media (min-width: 768px) {
-      .nav-links { display: flex; }
+    .lang-btn.active{
+      background:#fff;color:var(--primary);
+      font-weight:700;box-shadow:0 0 0 1px rgba(16,185,129,.12);
     }
 
     /* HERO */
-    section { padding: 64px 0; }
-    .hero {
-      padding-top: 72px;
-      padding-bottom: 64px;
+    .hero{padding-top:74px;padding-bottom:56px}
+    .hero-grid{display:grid;gap:2rem}
+    @media (min-width: 980px){
+      .hero-grid{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);align-items:center;gap:2.4rem}
     }
-    .hero-grid {
-      display: grid;
-      gap: 2.5rem;
+    .pill{
+      display:inline-flex;align-items:center;gap:.45rem;
+      padding:5px 10px;border-radius:999px;
+      font-size:11px;text-transform:uppercase;letter-spacing:.10em;
+      background:rgba(255,255,255,.9);
+      border:1px solid rgba(16,185,129,.18);
+      color:var(--primary);
     }
-    @media (min-width: 900px) {
-      .hero-grid {
-        grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-        align-items: center;
-      }
+    .pill-dot{width:6px;height:6px;border-radius:999px;background:#22c55e}
+    h1{margin:14px 0 10px;font-size:34px;line-height:1.12}
+    @media (min-width: 980px){h1{font-size:42px}}
+    .hero-sub{font-size:15px;color:var(--text-muted);max-width:640px}
+    .hero-actions{margin-top:18px;display:flex;gap:.75rem;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:.45rem;
+      padding:.72rem 1.15rem;border-radius:999px;
+      font-size:13px;font-weight:700;border:1px solid transparent;
+      cursor:pointer;white-space:nowrap;
     }
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 4px 8px;
-      border-radius: 999px;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      background: rgba(255, 255, 255, 0.9);
-      color: var(--primary);
-      border: 1px solid rgba(16, 185, 129, 0.18);
+    .btn-primary{
+      background:var(--primary);color:#fff;border-color:var(--primary);
+      box-shadow:0 10px 24px rgba(5,150,105,.24);
     }
-    .pill-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: #22c55e;
+    .btn-primary:hover{filter:brightness(.98);text-decoration:none}
+    .btn-ghost{
+      background:rgba(255,255,255,.85);
+      color:var(--text-main);border-color:var(--border);
     }
-    h1 {
-      margin: 16px 0 8px;
-      font-size: 32px;
-      line-height: 1.15;
-    }
-    @media (min-width: 900px) {
-      h1 { font-size: 40px; }
-    }
-    .hero-sub {
-      font-size: 15px;
-      color: var(--text-muted);
-      max-width: 520px;
-    }
-    .hero-actions {
-      margin-top: 18px;
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.4rem;
-      padding: 0.7rem 1.2rem;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 600;
-      border: 1px solid transparent;
-      cursor: pointer;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-    .btn-primary {
-      background: var(--primary);
-      color: #ffffff;
-      border-color: var(--primary);
-      box-shadow: 0 10px 24px rgba(5, 150, 105, 0.28);
-    }
-    .btn-primary:hover { filter: brightness(0.97); text-decoration: none; }
-    .btn-ghost {
-      background: rgba(255, 255, 255, 0.8);
-      color: var(--text-main);
-      border-color: #e5e7eb;
-    }
-    .btn-ghost:hover { background: #ffffff; }
+    .btn-ghost:hover{background:#fff;text-decoration:none}
 
-    .hero-card {
-      background: linear-gradient(145deg, #ffffff, #ecfdf5);
-      border-radius: 24px;
-      padding: 18px;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(209, 250, 229, 0.8);
+    .hero-card{
+      background:linear-gradient(145deg,#fff,#ecfdf5);
+      border-radius:24px;padding:18px;
+      box-shadow:var(--shadow-mid);
+      border:1px solid rgba(209,250,229,.9);
     }
-    .hero-card-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.75rem;
+    .mini-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}
+    .mini{
+      background:rgba(255,255,255,.92);
+      border-radius:16px;padding:10px 12px;
+      border:1px solid rgba(229,231,235,.85);
+      color:var(--text-muted);font-size:12px;
     }
-    .hero-mini {
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 16px;
-      padding: 10px 12px;
-      font-size: 12px;
-      color: var(--text-muted);
-      border: 1px solid rgba(229, 231, 235, 0.8);
+    .mini-title{font-size:13px;font-weight:800;color:var(--text-main);margin-bottom:2px}
+
+    /* SECTION headings */
+    .section-eyebrow{
+      text-transform:uppercase;letter-spacing:.12em;
+      font-size:11px;font-weight:900;color:var(--primary);
+      text-align:center;margin-bottom:4px;
     }
-    .hero-mini-title {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text-main);
-      margin-bottom: 2px;
-    }
-    .hero-tag {
-      font-size: 11px;
-      color: var(--primary);
-      margin-top: 4px;
+    .section-title{font-size:26px;text-align:center;margin:0}
+    .section-sub{
+      font-size:14px;color:var(--text-muted);
+      text-align:center;max-width:680px;margin:10px auto 30px;
     }
 
-    .section-eyebrow {
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--primary);
-      text-align: center;
-      margin-bottom: 4px;
+    /* Cards / grids */
+    .grid-2{display:grid;gap:1rem}
+    @media (min-width: 900px){.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    .grid-3{display:grid;gap:s:1rem}
+    @media (min-width: 900px){.grid-3{grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}}
+    .grid-4{display:grid;gap:1rem}
+    @media (min-width: 980px){.grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius-lg);
+      box-shadow:var(--shadow-soft);
+      padding:18px;
     }
-    .section-title {
-      font-size: 24px;
-      text-align: center;
-      margin: 0;
+    .card-title{font-size:15px;font-weight:900;margin:4px 0}
+    .card-text{font-size:13px;color:var(--text-muted);margin:0;line-height:1.5}
+
+    .badge{
+      display:inline-flex;align-items:center;gap:.35rem;
+      font-size:11px;font-weight:800;
+      padding:4px 10px;border-radius:999px;
+      border:1px solid rgba(16,185,129,.18);
+      background:rgba(255,255,255,.8);
+      color:var(--primary);
+      margin-bottom:10px;
     }
-    .section-sub {
-      font-size: 14px;
-      color: var(--text-muted);
-      text-align: center;
-      max-width: 600px;
-      margin: 8px auto 28px;
+    .badge.gray{
+      border-color:rgba(148,163,184,.35);
+      color:#334155;background:rgba(255,255,255,.85);
+    }
+    .icon{
+      width:28px;height:28px;border-radius:999px;
+      display:grid;place-items:center;
+      background:var(--primary-soft);
+      font-size:16px;margin-bottom:6px;
     }
 
-    .two-col {
-      display: grid;
-      gap: 2rem;
+    /* Program blocks */
+    .program-block{padding:20px}
+    .program-top{
+      display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+      margin-bottom:10px;
     }
-    @media (min-width: 900px) {
-      .two-col { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); }
+    .program-title{
+      font-size:16px;font-weight:900;margin:0;
     }
-    .card {
-      background: var(--card);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-soft);
-      padding: 20px;
+    .program-meta{font-size:12px;color:var(--text-muted);margin-top:4px}
+    .cta-row{margin-top:14px;display:flex;gap:.65rem;flex-wrap:wrap}
+
+    /* Honoree cards */
+    .honoree{display:flex;gap:12px}
+    .honoree-photo{
+      width:64px;height:64px;border-radius:14px;flex:0 0 auto;
+      border:1px solid var(--border);background:#f3f4f6;
+      overflow:hidden;
+      display:grid;place-items:center;
+      color:#94a3b8;font-weight:800;font-size:12px;
+    }
+    .honoree-photo img{width:100%;height:100%;object-fit:cover}
+    .honoree-name{font-size:14px;font-weight:900;margin:0}
+    .honoree-role{font-size:12px;color:var(--primary-2);font-weight:800;margin:2px 0 6px}
+    .honoree-desc{font-size:13px;color:var(--text-muted);margin:0;line-height:1.5}
+
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.6rem}
+    @media (min-width: 980px){.gallery{grid-template-columns:repeat(4,minmax(0,1fr))}}
+    .shot{
+      aspect-ratio: 4 / 3;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:linear-gradient(180deg,#f3f4f6,#e5e7eb);
+      overflow:hidden;
+    }
+    .shot img{width:100%;height:100%;object-fit:cover;display:block}
+
+    /* CONTACT footer */
+    .contact{
+      background:#0f172a;color:#e5e7eb;
+      padding:56px 0 40px;margin-top:10px;
+    }
+    .contact-grid{display:grid;gap:1.5rem}
+    @media (min-width: 900px){.contact-grid{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}}
+    .contact-card{
+      background:rgba(15,23,42,.86);
+      border-radius:var(--radius-lg);
+      border:1px solid rgba(148,163,184,.45);
+      padding:18px;
+    }
+    label{display:block;font-size:12px;color:#cbd5f5;margin-bottom:4px}
+    input,textarea{
+      width:100%;
+      border-radius:12px;
+      border:1px solid rgba(148,163,184,.7);
+      padding:8px 10px;
+      font-size:13px;
+      font-family:inherit;
+      background:rgba(15,23,42,.96);
+      color:#e5e7eb;
+    }
+    input:focus,textarea:focus{
+      outline:none;border-color:#22c55e;box-shadow:0 0 0 1px rgba(34,197,94,.35);
+    }
+    textarea{resize:vertical;min-height:92px}
+
+    footer{
+      border-top:1px solid rgba(148,163,184,.35);
+      margin-top:28px;padding-top:14px;
+      font-size:12px;color:#9ca3af;
+      display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
     }
 
-    .list {
-      padding-left: 1.1rem;
-      color: var(--text-muted);
-      font-size: 14px;
-    }
-    .list li { margin-bottom: 0.35rem; }
-
-    .grid-3 {
-      display: grid;
-      gap: 1rem;
-    }
-    @media (min-width: 900px) {
-      .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    }
-    .grid-4 {
-      display: grid;
-      gap: 1rem;
-    }
-    @media (min-width: 900px) {
-      .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-    }
-    .pill-icon {
-      width: 28px;
-      height: 28px;
-      border-radius: 999px;
-      display: grid;
-      place-items: center;
-      background: var(--primary-soft);
-      font-size: 16px;
-      margin-bottom: 6px;
-    }
-    .card-title {
-      font-size: 15px;
-      font-weight: 600;
-      margin: 4px 0;
-    }
-    .card-text {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin: 0;
-    }
-
-    .stat-row {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.75rem;
-      margin-top: 10px;
-    }
-    .stat-card {
-      background: #ffffff;
-      border-radius: 14px;
-      border: 1px solid #e5e7eb;
-      padding: 12px;
-      text-align: center;
-    }
-    .stat-value {
-      font-size: 20px;
-      font-weight: 700;
-    }
-    .stat-label {
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-
-    .contact {
-      background: #0f172a;
-      color: #e5e7eb;
-      padding: 56px 0 40px;
-      margin-top: 20px;
-    }
-    .contact-grid {
-      display: grid;
-      gap: 2rem;
-    }
-    @media (min-width: 900px) {
-      .contact-grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); }
-    }
-    .contact-card {
-      background: rgba(15, 23, 42, 0.8);
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      padding: 20px;
-    }
-    .contact-item-title {
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 2px;
-    }
-    .contact-item-value {
-      font-size: 14px;
-      color: #e5e7eb;
-      margin-bottom: 10px;
-    }
-    label {
-      display: block;
-      font-size: 12px;
-      color: #cbd5f5;
-      margin-bottom: 4px;
-    }
-    input, textarea {
-      width: 100%;
-      border-radius: 12px;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      padding: 8px 10px;
-      font-size: 13px;
-      font-family: inherit;
-      background: rgba(15, 23, 42, 0.96);
-      color: #e5e7eb;
-    }
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: #22c55e;
-      box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.4);
-    }
-    textarea { resize: vertical; min-height: 90px; }
-
-    footer {
-      border-top: 1px solid rgba(148, 163, 184, 0.4);
-      margin-top: 32px;
-      padding-top: 14px;
-      font-size: 12px;
-      color: #9ca3af;
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    /* Language visibility */
-.lang-en { display: inline; }
-.lang-kn { display: none; }
-
-/* When body has kn-mode, show Kannada & hide English */
-body.kn-mode .lang-en { display: none; }
-body.kn-mode .lang-kn { display: inline; }
+    /* Language visibility (fixed) */
+    .lang-en{display:inline}
+    .lang-kn{display:none}
+    body.kn-mode .lang-en{display:none}
+    body.kn-mode .lang-kn{display:inline}
   </style>
 </head>
-<body class="lang-en">
+
+<body>
   <!-- NAVBAR -->
   <header class="nav">
     <div class="container nav-inner">
-      <a href="#top" class="brand">
-        <div class="brand-mark">🌿</div>
+      <a href="#top" class="brand" aria-label="Sushan Trust home">
+        <!-- Logo placeholder: upload your logo to /assets/logo.svg (or .png) -->
+        <div class="logo" aria-label="Sushan Trust logo">
+          <img src="/assets/logo.svg" alt="Sushan Trust logo" onerror="this.remove(); this.parentElement.textContent='🌿';" />
+        </div>
         <div>
           <div class="brand-text-main">Sushan Trust</div>
-          <div class="brand-text-sub">Kodlady · Kundapur</div>
+          <div class="brand-text-sub">Kodlady · Udupi District</div>
         </div>
       </a>
-      <nav class="nav-links">
+
+      <nav class="nav-links" aria-label="Primary navigation">
         <a href="#about">About</a>
         <a href="#programs">Programs</a>
         <a href="#contact">Contact</a>
       </nav>
+
       <div class="lang-toggle" aria-label="Change language">
         <button class="lang-btn active" data-lang="en">EN</button>
         <button class="lang-btn" data-lang="kn">ಕನ್ನಡ</button>
@@ -428,8 +286,8 @@ body.kn-mode .lang-kn { display: inline; }
     </div>
   </header>
 
-  <!-- HERO -->
   <main id="top">
+    <!-- HERO -->
     <section class="hero">
       <div class="container hero-grid">
         <div>
@@ -438,95 +296,62 @@ body.kn-mode .lang-kn { display: inline; }
             <span class="lang-en">STEM · Environment · Coastal Karnataka</span>
             <span class="lang-kn">STEM · ಪರಿಸರ · ಕರಾವಳಿ ಕರ್ನಾಟಕ</span>
           </div>
+
           <h1>
             <span class="lang-en">Sushan Trust, Kodlady</span>
             <span class="lang-kn">ಸುಶನ್ ಟ್ರಸ್ಟ್, ಕೊಡ್ಲಾಡಿ</span>
           </h1>
+
           <p class="hero-sub">
             <span class="lang-en">
-              A family driven philanthropic trust nurturing STEM education and environmental awareness among students and institutions in Byndoor and Kundapur taluks.
+              A family-driven philanthropic trust nurturing STEM education and environmental awareness across <strong>Udupi district</strong>.
             </span>
             <span class="lang-kn">
-              ಬೈಂದೂರು ಮತ್ತು ಕುಂದಾಪುರ ತಾಲ್ಲೂಕಿನ ವಿದ್ಯಾರ್ಥಿಗಳು ಮತ್ತು ಸಂಸ್ಥೆಗಳ ನಡುವೆ STEM ಶಿಕ್ಷಣ ಮತ್ತು ಪರಿಸರ ಜಾಗೃತಿ ಬೆಳೆಸಲು ಸಮರ್ಪಿತ ಕುಟುಂಬ ಆಧಾರಿತ ಸಾಹಿತ್ಯಿಕ ಟ್ರಸ್ಟ್.
+              <strong>ಉಡುಪಿ ಜಿಲ್ಲೆ</strong>ಯಲ್ಲಿ STEM ಶಿಕ್ಷಣ ಮತ್ತು ಪರಿಸರ ಜಾಗೃತಿ ಬೆಳೆಸಲು ಸಮರ್ಪಿತ ಕುಟುಂಬ ಆಧಾರಿತ ಸೇವಾ ಟ್ರಸ್ಟ್.
             </span>
           </p>
+
           <div class="hero-actions">
-            <a href="#about" class="btn btn-primary">
-              <span class="lang-en">Explore our mission</span>
-              <span class="lang-kn">ನಮ್ಮ ಉದ್ದೇಶ ತಿಳಿದುಕೊಳ್ಳಿ</span>
+            <a href="#programs" class="btn btn-primary">
+              <span class="lang-en">See what’s active now</span>
+              <span class="lang-kn">ಈಗಿನ ಕಾರ್ಯಕ್ರಮಗಳು</span>
               →
             </a>
-            <a href="#programs" class="btn btn-ghost">
-              <span class="lang-en">View programs</span>
-              <span class="lang-kn">ಕಾರ್ಯಕ್ರಮಗಳು ನೋಡಿ</span>
+            <a href="#about" class="btn btn-ghost">
+              <span class="lang-en">About the Trust</span>
+              <span class="lang-kn">ಟ್ರಸ್ಟ್ ಕುರಿತು</span>
             </a>
-          </div>
-          <div class="stat-row">
-            <div class="stat-card">
-              <div class="stat-value">150+</div>
-              <div class="stat-label lang-en">Students reached</div>
-              <div class="stat-label lang-kn">ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಸ್ಪರ್ಶ</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-value">25+</div>
-              <div class="stat-label lang-en">Workshops & camps</div>
-              <div class="stat-label lang-kn">ಕಾರ್ಯಾಗಾರಗಳು & ಶಿಬಿರಗಳು</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-value">6</div>
-              <div class="stat-label lang-en">Partner institutions</div>
-              <div class="stat-label lang-kn">ಸಹಭಾಗಿ ಸಂಸ್ಥೆಗಳು</div>
-            </div>
           </div>
         </div>
 
         <aside class="hero-card" aria-label="Snapshot of our work">
-          <p style="font-size:12px;color:var(--text-muted);margin-top:0;margin-bottom:10px;">
-            <span class="lang-en">What we focus on</span>
-            <span class="lang-kn">ನಮ್ಮ ಕೇಂದ್ರೀಕೃತ ಕ್ಷೇತ್ರಗಳು</span>
+          <p style="font-size:12px;color:var(--text-muted);margin:0 0 10px;">
+            <span class="lang-en">Our focus areas</span>
+            <span class="lang-kn">ನಮ್ಮ ಕಾರ್ಯ ಕ್ಷೇತ್ರಗಳು</span>
           </p>
-          <div class="hero-card-grid">
-            <div class="hero-mini">
-              <div class="hero-mini-title">
-                🎓 <span class="lang-en">Scholarships</span><span class="lang-kn">ವಿದ್ಯಾರ್ಥಿ ವೇತನ</span>
-              </div>
-              <div class="hero-text">
-                <span class="lang-en">Support for students in core STEM & Environmental Studies.</span>
-                <span class="lang-kn">ಪ್ರಮುಖ STEM ಮತ್ತು ಪರಿಸರ ಅಧ್ಯಯನದಲ್ಲಿರುವ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಆರ್ಥಿಕ ಬೆಂಬಲ.</span>
-              </div>
+
+          <div class="mini-grid">
+            <div class="mini">
+              <div class="mini-title">🎓 <span class="lang-en">Education</span><span class="lang-kn">ಶಿಕ್ಷಣ</span></div>
+              <span class="lang-en">Access to quality STEM learning and opportunities.</span>
+              <span class="lang-kn">ಗುಣಮಟ್ಟದ STEM ಕಲಿಕೆಗೆ ಅವಕಾಶ.</span>
             </div>
-            <div class="hero-mini">
-              <div class="hero-mini-title">
-                🧪 <span class="lang-en">STEM Labs</span><span class="lang-kn">STEM ಲ್ಯಾಬ್‌ಗಳು</span>
-              </div>
-              <div class="hero-text">
-                <span class="lang-en">Hands-on exposure through experiments and labs.</span>
-                <span class="lang-kn">ಪ್ರಾಯೋಗಿಕ ಲ್ಯಾಬ್ ಮತ್ತು ಪ್ರಯೋಗಗಳ ಮೂಲಕ ಅನುಭವ.</span>
-              </div>
+            <div class="mini">
+              <div class="mini-title">🧪 <span class="lang-en">Innovation</span><span class="lang-kn">ನವೀನತೆ</span></div>
+              <span class="lang-en">Hands-on exposure and practical problem solving.</span>
+              <span class="lang-kn">ಪ್ರಾಯೋಗಿಕ ಅನುಭವ ಮತ್ತು ಸಮಸ್ಯಾ ಪರಿಹಾರ.</span>
             </div>
-            <div class="hero-mini">
-              <div class="hero-mini-title">
-                🌿 <span class="lang-en">Environment</span><span class="lang-kn">ಪರಿಸರ</span>
-              </div>
-              <div class="hero-text">
-                <span class="lang-en">Campaigns on sustainability & conservation.</span>
-                <span class="lang-kn">ಸ್ಥಿರತೆಯನ್ನು ಒತ್ತಿಹೇಳುವ ಪರಿಸರ ಜಾಗೃತಿ ಅಭಿಯಾನಗಳು.</span>
-              </div>
+            <div class="mini">
+              <div class="mini-title">🌿 <span class="lang-en">Environment</span><span class="lang-kn">ಪರಿಸರ</span></div>
+              <span class="lang-en">Awareness, conservation and sustainable habits.</span>
+              <span class="lang-kn">ಜಾಗೃತಿ, ಸಂರಕ್ಷಣೆ ಮತ್ತು ಸ್ಥಿರ ಅಭ್ಯಾಸಗಳು.</span>
             </div>
-            <div class="hero-mini">
-              <div class="hero-mini-title">
-                📚 <span class="lang-en">Research & publications</span><span class="lang-kn">ಸಂಶೋಧನೆ & ಪ್ರಕಟಣೆ</span>
-              </div>
-              <div class="hero-text">
-                <span class="lang-en">Backing ideas and local research that create impact.</span>
-                <span class="lang-kn">ಸಮಾಜಮುಖಿ ಪರಿಣಾಮ ತರುವ ಸಂಶೋಧನೆ ಮತ್ತು ಆಲೋಚನೆಗಳಿಗೆ ಬೆಂಬಲ.</span>
-              </div>
+            <div class="mini">
+              <div class="mini-title">🏅 <span class="lang-en">Recognition</span><span class="lang-kn">ಗೌರವ</span></div>
+              <span class="lang-en">Honouring distinguished contributors in STEM & environment.</span>
+              <span class="lang-kn">STEM ಮತ್ತು ಪರಿಸರ ಕ್ಷೇತ್ರದ ಸಾಧಕರಿಗೆ ಗೌರವ.</span>
             </div>
           </div>
-          <p class="hero-tag">
-            <span class="lang-en">Based in Kodlady, Kundapur (Udupi district), serving coastal Karnataka.</span>
-            <span class="lang-kn">ಉಡುಪಿ ಜಿಲ್ಲೆಯ ಕೊಡ್ಲಾಡಿಯಲ್ಲಿ ನೆಲೆಸಿರುವ ಟ್ರಸ್ಟ್, ಕರಾವಳಿ ಕರ್ನಾಟಕವನ್ನು ಸೇವಿಸುತ್ತದೆ.</span>
-          </p>
         </aside>
       </div>
     </section>
@@ -535,89 +360,56 @@ body.kn-mode .lang-kn { display: inline; }
     <section id="about">
       <div class="container">
         <div class="section-eyebrow">
-          <span class="lang-en">Who we are</span>
-          <span class="lang-kn">ನಾವು ಯಾರು</span>
+          <span class="lang-en">About</span>
+          <span class="lang-kn">ಪರಿಚಯ</span>
         </div>
         <h2 class="section-title">
-          <span class="lang-en">Rooted in coastal Karnataka, focused on the future</span>
-          <span class="lang-kn">ಕರಾವಳಿ ಕರ್ನಾಟಕದಲ್ಲಿ ಬೇರು, ಭವಿಷ್ಯ ನಮ್ಮ ದೃಷ್ಟಿಯಲ್ಲಿ</span>
+          <span class="lang-en">Rooted locally, built for long-term impact</span>
+          <span class="lang-kn">ಸ್ಥಳೀಯ ಬೇರು — ದೀರ್ಘಕಾಲಿಕ ಪರಿಣಾಮ</span>
         </h2>
         <p class="section-sub">
           <span class="lang-en">
-            Sushan Trust is a family-driven philanthropic initiative from Kodlady, Kundapur, committed to enabling students and contributors in STEM and Environmental Studies across Byndoor and Kundapur taluks.
+            Sushan Trust is based in Kodlady (Kundapur taluk), working across Udupi district to strengthen STEM learning and environmental responsibility among students and institutions.
           </span>
           <span class="lang-kn">
-            ಸುಶನ್ ಟ್ರಸ್ಟ್‌ ಕೊಡ್ಲಾಡಿ (ಕುಂದಾಪುರ) ಮೂಲದ ಕುಟುಂಬ ಆಧಾರಿತ ಸೇವಾ ಪ್ರತಿಷ್ಠಾನ. ಬೈಂದೂರು ಮತ್ತು ಕುಂದಾಪುರ ತಾಲೂಕಿನಲ್ಲಿ STEM ಮತ್ತು ಪರಿಸರ ಅಧ್ಯಯನ ಕ್ಷೇತ್ರದ ವಿದ್ಯಾರ್ಥಿಗಳು ಮತ್ತು ಕೊಡುಗೆಯವರನ್ನು ದೃಢಪಡಿಸುವುದು ನಮ್ಮ ಸಂಕಲ್ಪ.
+            ಸುಶನ್ ಟ್ರಸ್ಟ್ ಕೊಡ್ಲಾಡಿ (ಕುಂದಾಪುರ) ಮೂಲದ ಸಂಸ್ಥೆ. ಉಡುಪಿ ಜಿಲ್ಲೆभरದಲ್ಲಿ ವಿದ್ಯಾರ್ಥಿಗಳು ಮತ್ತು ಸಂಸ್ಥೆಗಳ ನಡುವೆ STEM ಕಲಿಕೆ ಹಾಗೂ ಪರಿಸರ ಜವಾಬ್ದಾರಿಯನ್ನು ಬಲಪಡಿಸುವುದು ನಮ್ಮ ಉದ್ದೇಶ.
           </span>
         </p>
 
-        <div class="two-col">
-          <article>
-            <p style="font-size:14px;color:var(--text-muted);">
-              <span class="lang-en">
-                We believe that education in core sciences and a deep respect for the environment must go hand in hand. By providing scholarships, exposure, and mentorship, we want to make world-class opportunities accessible to talented youth from smaller towns and rural pockets.
-              </span>
-              <span class="lang-kn">
-                ಮೂಲ ವಿಜ್ಞಾನ ಶಿಕ್ಷಣ ಮತ್ತು ಪರಿಸರದ ಮೇಲಿನ ಗೌರವ ಎರಡೂ ಪರಸ್ಪರ ಕೈ ಹಿಡಿದಾಗ ಮಾತ್ರ ಸಮತೋಲನದ ಸಮಾಜ ಸಾಧ್ಯ ಎನ್ನುವುದು ನಮ್ಮ ನಂಬಿಕೆ. ವಿದ್ಯಾರ್ಥಿ ವೇತನ, ಮಾರ್ಗದರ್ಶನ ಮತ್ತು ಅವಕಾಶಗಳ ಮೂಲಕ, ಸಣ್ಣ ಪಟ್ಟಣ ಮತ್ತು ಗ್ರಾಮೀಣ ಭಾಗದ ಪ್ರತಿಭಾವಂತರಿಗೆ ಜಾಗತಿಕ ಮಟ್ಟದ ಅವಕಾಶ ತಲುಪಿಸುವುದು ನಮ್ಮ ಕನಸು.
-              </span>
-            </p>
-            <ul class="list">
-              <li>
-                <span class="lang-en">Support students pursuing core STEM and Environmental disciplines.</span>
-                <span class="lang-kn">ಮುಖ್ಯ STEM ಮತ್ತು ಪರಿಸರ ವಿಷಯಗಳಲ್ಲಿ ಅಧ್ಯಯನ ಮಾಡುತ್ತಿರುವ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಬೆಂಬಲ.</span>
-              </li>
-              <li>
-                <span class="lang-en">Encourage innovation that addresses real-world environmental challenges.</span>
-                <span class="lang-kn">ಯಥಾರ್ಥ ಪರಿಸರ ಸಮಸ್ಯೆಗಳಿಗೆ ಪರಿಹಾರ ನೀಡುವ ನವೀಕೃತ ಆಲೋಚನೆಗಳಿಗೆ ಉತ್ತೇಜನ.</span>
-              </li>
-              <li>
-                <span class="lang-en">Recognise and back contributors who create lasting community impact.</span>
-                <span class="lang-kn">ಸಮುದಾಯದಲ್ಲಿ ದೀರ್ಘಕಾಲಿಕ ಪರಿಣಾಮ ತರುವ ಕೊಡುಗೆಯವರನ್ನು ಗುರುತಿಸಿ ಬೆಂಬಲಿಸುವುದು.</span>
-              </li>
-            </ul>
-          </article>
-
-          <aside class="card">
-            <p style="font-size:12px;color:var(--text-muted);margin-top:0;margin-bottom:10px;">
-              <span class="lang-en">Our focus areas</span>
-              <span class="lang-kn">ನಮ್ಮ ಕಾರ್ಯ ಕ್ಷೇತ್ರಗಳು</span>
-            </p>
-            <div class="grid-3">
-              <div>
-                <div class="pill-icon">🎓</div>
-                <div class="card-title">
-                  <span class="lang-en">Education</span>
-                  <span class="lang-kn">ಶಿಕ್ಷಣ</span>
-                </div>
-                <p class="card-text">
-                  <span class="lang-en">Core STEM and Environmental Studies for the next generation.</span>
-                  <span class="lang-kn">ಮುಂದಿನ ಪೀಳಿಗೆಗಾಗಿ ಮೂಲ STEM ಮತ್ತು ಪರಿಸರ ಅಧ್ಯಯನ.</span>
-                </p>
-              </div>
-              <div>
-                <div class="pill-icon">🧪</div>
-                <div class="card-title">
-                  <span class="lang-en">Innovation</span>
-                  <span class="lang-kn">ನವೀನತೆ</span>
-                </div>
-                <p class="card-text">
-                  <span class="lang-en">Local ideas, research and experiments that solve real problems.</span>
-                  <span class="lang-kn">ಸ್ಥಳೀಯ ಸಮಸ್ಯೆಗಳಿಗೆ ಪರಿಹಾರ ಕಂಡುಹಿಡಿಯುವ ಸಂಶೋಧನೆ ಮತ್ತು ಪ್ರಯೋಗಗಳು.</span>
-                </p>
-              </div>
-              <div>
-                <div class="pill-icon">🌎</div>
-                <div class="card-title">
-                  <span class="lang-en">Environment</span>
-                  <span class="lang-kn">ಪರಿಸರ</span>
-                </div>
-                <p class="card-text">
-                  <span class="lang-en">Awareness and action for a cleaner, more sustainable coastline.</span>
-                  <span class="lang-kn">ಹೆಚ್ಚಿನ ಸ್ವಚ್ಛ ಹಾಗೂ ಸ್ಥಿರ ಕರಾವಳಿಗಾಗಿ ಜಾಗೃತಿ ಮತ್ತು ಕಾರ್ಯ.</span>
-                </p>
-              </div>
+        <div class="grid-3">
+          <div class="card">
+            <div class="icon">🎯</div>
+            <div class="card-title">
+              <span class="lang-en">Our mission</span>
+              <span class="lang-kn">ನಮ್ಮ ಉದ್ದೇಶ</span>
             </div>
-          </aside>
+            <p class="card-text">
+              <span class="lang-en">Enable practical STEM learning and environmental awareness through community-first programs.</span>
+              <span class="lang-kn">ಸಮುದಾಯಕೇಂದ್ರಿತ ಕಾರ್ಯಕ್ರಮಗಳ ಮೂಲಕ ಪ್ರಾಯೋಗಿಕ STEM ಕಲಿಕೆ ಮತ್ತು ಪರಿಸರ ಜಾಗೃತಿ ಬೆಳೆಸುವುದು.</span>
+            </p>
+          </div>
+          <div class="card">
+            <div class="icon">🧭</div>
+            <div class="card-title">
+              <span class="lang-en">Our approach</span>
+              <span class="lang-kn">ನಮ್ಮ ವಿಧಾನ</span>
+            </div>
+            <p class="card-text">
+              <span class="lang-en">Simple, measurable initiatives—recognition, competitions, workshops, and scholarships.</span>
+              <span class="lang-kn">ಸರಳ ಹಾಗೂ ಅಳತೆಯಾಗುವ ಕಾರ್ಯಕ್ರಮಗಳು—ಗೌರವ, ಸ್ಪರ್ಧೆಗಳು, ಕಾರ್ಯಾಗಾರಗಳು, ವಿದ್ಯಾರ್ಥಿ ವೇತನ.</span>
+            </p>
+          </div>
+          <div class="card">
+            <div class="icon">🤝</div>
+            <div class="card-title">
+              <span class="lang-en">Who we work with</span>
+              <span class="lang-kn">ನಾವು ಯಾರೊಂದಿಗೆ</span>
+            </div>
+            <p class="card-text">
+              <span class="lang-en">Schools, colleges, educators, experts, and community partners in Udupi district.</span>
+              <span class="lang-kn">ಉಡುಪಿ ಜಿಲ್ಲೆಯ ಶಾಲೆಗಳು, ಕಾಲೇಜುಗಳು, ಶಿಕ್ಷಕರು, ತಜ್ಞರು ಮತ್ತು ಸಮುದಾಯ ಸಹಭಾಗಿಗಳು.</span>
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -629,128 +421,235 @@ body.kn-mode .lang-kn { display: inline; }
           <span class="lang-en">Programs</span>
           <span class="lang-kn">ಕಾರ್ಯಕ್ರಮಗಳು</span>
         </div>
+
         <h2 class="section-title">
-          <span class="lang-en">From scholarships to sustainability drives</span>
-          <span class="lang-kn">ವಿದ್ಯಾರ್ಥಿ ವೇತನದಿಂದ ಪರಿಸರ ಅಭಿಯಾನಗಳವರೆಗೆ</span>
+          <span class="lang-en">Now · Highlights · Next</span>
+          <span class="lang-kn">ಈಗ · ಮುಖ್ಯ ಕ್ಷಣಗಳು · ಮುಂದಿನದು</span>
         </h2>
+
         <p class="section-sub">
           <span class="lang-en">
-            Our initiatives are designed to be practical, measurable and deeply rooted in the needs of Byndoor and Kundapur communities.
+            A clean view of what’s active today, what we achieved recently, and what we’re building toward.
           </span>
           <span class="lang-kn">
-            ಬೈಂದೂರು ಮತ್ತು ಕುಂದಾಪುರ ಭಾಗದ ನೈಜ ಅಗತ್ಯಗಳನ್ನು ಗಮನದಲ್ಲಿಟ್ಟು, ಪ್ರಾಯೋಗಿಕ ಮತ್ತು ಅಳತೆಯಾಗುವಂತಹ ಕಾರ್ಯಕ್ರಮಗಳನ್ನು ನಾವು ರೂಪಿಸುತ್ತೇವೆ.
+            ಇಂದು ನಡೆಯುತ್ತಿರುವುದು, ಇತ್ತೀಚೆಗೆ ಮಾಡಿದ ಕೆಲಸಗಳು, ಮತ್ತು ಮುಂದಿನ ದಿಕ್ಕು—ಸಂಕ್ಷಿಪ್ತವಾಗಿ.
           </span>
         </p>
 
-        <div class="grid-4">
-          <div class="card">
-            <div class="pill-icon">🎓</div>
-            <div class="card-title">
-              <span class="lang-en">Scholarships</span>
-              <span class="lang-kn">ವಿದ್ಯಾರ್ಥಿ ವೇತನ</span>
+        <div class="grid-2">
+          <!-- NOW -->
+          <div class="card program-block">
+            <div class="badge">🟢 <span class="lang-en">Now (2026)</span><span class="lang-kn">ಈಗ (2026)</span></div>
+
+            <div class="program-top">
+              <div>
+                <p class="program-title">
+                  <span class="lang-en">District Essay Contest</span>
+                  <span class="lang-kn">ಜಿಲ್ಲಾ ಪ್ರಬಂಧ ಸ್ಪರ್ಧೆ</span>
+                </p>
+                <div class="program-meta">
+                  <span class="lang-en">Theme: Environment + responsible habits · Open to schools & PU</span>
+                  <span class="lang-kn">ಥೀಮ್: ಪರಿಸರ + ಜವಾಬ್ದಾರಿ ಅಭ್ಯಾಸಗಳು · ಶಾಲೆ/ಪಿಯು ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ</span>
+                </div>
+              </div>
+              <span class="badge gray">
+                <span class="lang-en">Open call</span>
+                <span class="lang-kn">ಅರ್ಜಿಗಳು ತೆರೆಯಲಾಗಿದೆ</span>
+              </span>
             </div>
+
             <p class="card-text">
-              <span class="lang-en">Financial assistance for students in core STEM and Environmental Studies at school and pre-university levels.</span>
-              <span class="lang-kn">ಮೂಲ STEM ಮತ್ತು ಪರಿಸರ ವಿಷಯಗಳಲ್ಲಿ ಶಾಲೆ ಹಾಗೂ ಪೂರ್ವ-ವಿಶ್ವವಿದ್ಯಾಲಯ ಮಟ್ಟದ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಆರ್ಥಿಕ ಸಹಾಯ.</span>
+              <span class="lang-en">
+                We are running an essay contest in 2026. Submissions and guidelines will be shared via schools. Students can email their entries to <strong>contact@sushantrustkodlady.com</strong>.
+              </span>
+              <span class="lang-kn">
+                2026ರಲ್ಲಿ ಪ್ರಬಂಧ ಸ್ಪರ್ಧೆ ನಡೆಸಲಾಗುತ್ತಿದೆ. ಮಾರ್ಗಸೂಚಿ ಮತ್ತು ಸಮಯಸীমೆ ಶಾಲೆಗಳ ಮೂಲಕ ಹಂಚಿಕೊಳ್ಳಲಾಗುತ್ತದೆ. ವಿದ್ಯಾರ್ಥಿಗಳು ತಮ್ಮ ಪ್ರಬಂಧವನ್ನು <strong>contact@sushantrustkodlady.com</strong> ಗೆ ಕಳುಹಿಸಬಹುದು.
+              </span>
             </p>
-          </div>
-          <div class="card">
-            <div class="pill-icon">🧪</div>
-            <div class="card-title">
-              <span class="lang-en">STEM camps & workshops</span>
-              <span class="lang-kn">STEM ಶಿಬಿರಗಳು & ಕಾರ್ಯಾಗಾರಗಳು</span>
+
+            <div class="cta-row">
+              <a class="btn btn-primary" href="#contact">
+                <span class="lang-en">Get guidelines</span>
+                <span class="lang-kn">ಮಾರ್ಗಸೂಚಿ ಪಡೆಯಿರಿ</span>
+                →
+              </a>
+              <a class="btn btn-ghost" href="#contact">
+                <span class="lang-en">Contact for submission</span>
+                <span class="lang-kn">ಸಲ್ಲಿಕೆಗೆ ಸಂಪರ್ಕ</span>
+              </a>
             </div>
-            <p class="card-text">
-              <span class="lang-en">Hands-on sessions that build curiosity in science, technology and problem-solving.</span>
-              <span class="lang-kn">ವಿಜ್ಞಾನ, ತಂತ್ರಜ್ಞಾನ ಮತ್ತು ಸಮಸ್ಯಾ ಪರಿಹಾರದಲ್ಲಿ ಆಸಕ್ತಿ ಹುಟ್ಟಿಸುವ ಪ್ರಾಯೋಗಿಕ ಅಧಿವೇಶನಗಳು.</span>
-            </p>
           </div>
-          <div class="card">
-            <div class="pill-icon">🌿</div>
-            <div class="card-title">
-              <span class="lang-en">Eco drives</span>
-              <span class="lang-kn">ಪರಿಸರ ಅಭಿಯಾನಗಳು</span>
+
+          <!-- HIGHLIGHTS -->
+          <div class="card program-block">
+            <div class="badge">🏅 <span class="lang-en">Highlights (2025)</span><span class="lang-kn">ಮುಖ್ಯ ಕ್ಷಣಗಳು (2025)</span></div>
+
+            <div class="program-top">
+              <div>
+                <p class="program-title">
+                  <span class="lang-en">Sushan Trust Awards</span>
+                  <span class="lang-kn">ಸುಶನ್ ಟ್ರಸ್ಟ್ ಪ್ರಶಸ್ತಿಗಳು</span>
+                </p>
+                <div class="program-meta">
+                  <span class="lang-en">Recognising distinguished work in Environment and STEM</span>
+                  <span class="lang-kn">ಪರಿಸರ ಮತ್ತು STEM ಕ್ಷೇತ್ರದ ವಿಶಿಷ್ಟ ಕೊಡುಗೆಗೆ ಗೌರವ</span>
+                </div>
+              </div>
             </div>
-            <p class="card-text">
-              <span class="lang-en">Tree planting, clean-up drives, waste segregation awareness and climate conversations.</span>
-              <span class="lang-kn">ಮರ ನೆಡುವಿಕೆ, ಸ್ವಚ್ಛತಾ ಅಭಿಯಾನ, ತ್ಯಾಜ್ಯ ವಿಂಗಡಣೆ ಜಾಗೃತಿ ಮತ್ತು ಹವಾಮಾನ ಸಂಭಾಷಣೆ.</span>
-            </p>
-          </div>
-          <div class="card">
-            <div class="pill-icon">📚</div>
-            <div class="card-title">
-              <span class="lang-en">Research & publications</span>
-              <span class="lang-kn">ಸಂಶೋಧನೆ & ಪ್ರಕಟಣೆ</span>
+
+            <div style="display:grid;gap:.9rem;margin-top:.5rem;">
+              <div class="honoree">
+                <div class="honoree-photo" title="Upload photo to /assets/awardee-1.jpg">
+                  <img src="/assets/awardee-1.jpg" alt="Awardee photo 1" onerror="this.parentElement.textContent='PHOTO'; this.remove();" />
+                </div>
+                <div>
+                  <p class="honoree-name">
+                    <span class="lang-en">[Awardee 1 Name]</span>
+                    <span class="lang-kn">[ಪ್ರಶಸ್ತಿ 1 ಹೆಸರು]</span>
+                  </p>
+                  <p class="honoree-role">
+                    <span class="lang-en">Environment Award</span>
+                    <span class="lang-kn">ಪರಿಸರ ಪ್ರಶಸ್ತಿ</span>
+                  </p>
+                  <p class="honoree-desc">
+                    <span class="lang-en">[2–3 lines about their contribution and impact. Replace this text.]</span>
+                    <span class="lang-kn">[ಅವರ ಕೊಡುಗೆ ಮತ್ತು ಪರಿಣಾಮ ಕುರಿತು 2–3 ಸಾಲು. ಈ ಪಠ್ಯವನ್ನು ಬದಲಿಸಿ.]</span>
+                  </p>
+                </div>
+              </div>
+
+              <div class="honoree">
+                <div class="honoree-photo" title="Upload photo to /assets/awardee-2.jpg">
+                  <img src="/assets/awardee-2.jpg" alt="Awardee photo 2" onerror="this.parentElement.textContent='PHOTO'; this.remove();" />
+                </div>
+                <div>
+                  <p class="honoree-name">
+                    <span class="lang-en">[Awardee 2 Name]</span>
+                    <span class="lang-kn">[ಪ್ರಶಸ್ತಿ 2 ಹೆಸರು]</span>
+                  </p>
+                  <p class="honoree-role">
+                    <span class="lang-en">STEM Award</span>
+                    <span class="lang-kn">STEM ಪ್ರಶಸ್ತಿ</span>
+                  </p>
+                  <p class="honoree-desc">
+                    <span class="lang-en">[2–3 lines about their contribution and impact. Replace this text.]</span>
+                    <span class="lang-kn">[ಅವರ ಕೊಡುಗೆ ಮತ್ತು ಪರಿಣಾಮ ಕುರಿತು 2–3 ಸಾಲು. ಈ ಪಠ್ಯವನ್ನು ಬದಲಿಸಿ.]</span>
+                  </p>
+                </div>
+              </div>
             </div>
-            <p class="card-text">
-              <span class="lang-en">Support for local research projects, reports and educational material in STEM and environment.</span>
-              <span class="lang-kn">STEM ಮತ್ತು ಪರಿಸರ ಕ್ಷೇತ್ರದ ಸ್ಥಳೀಯ ಸಂಶೋಧನೆ, ವರದಿ ಮತ್ತು ಶೈಕ್ಷಣಿಕ ವಿಷಯ ರಚನೆಗೆ ಬೆಂಬಲ.</span>
-            </p>
+
+            <div style="margin-top:14px">
+              <div class="badge gray">
+                <span class="lang-en">Event photos</span>
+                <span class="lang-kn">ಕಾರ್ಯಕ್ರಮದ ಚಿತ್ರಗಳು</span>
+              </div>
+              <div class="gallery" aria-label="Awards event photo gallery">
+                <div class="shot"><img src="/assets/awards-1.jpg" alt="Awards photo 1" onerror="this.remove();" /></div>
+                <div class="shot"><img src="/assets/awards-2.jpg" alt="Awards photo 2" onerror="this.remove();" /></div>
+                <div class="shot"><img src="/assets/awards-3.jpg" alt="Awards photo 3" onerror="this.remove();" /></div>
+                <div class="shot"><img src="/assets/awards-4.jpg" alt="Awards photo 4" onerror="this.remove();" /></div>
+              </div>
+              <p class="card-text" style="margin-top:10px">
+                <span class="lang-en">Upload your photos as /assets/awards-1.jpg … awards-4.jpg (or add more).</span>
+                <span class="lang-kn">ಚಿತ್ರಗಳನ್ನು /assets/awards-1.jpg … awards-4.jpg ಹೆಸರಿನಲ್ಲಿ ಅಪ್‌ಲೋಡ್ ಮಾಡಿ (ಇನ್ನಷ್ಟು ಸೇರಿಸಬಹುದು).</span>
+              </p>
+            </div>
           </div>
+        </div>
+
+        <!-- NEXT -->
+        <div class="card" style="margin-top:1rem;">
+          <div class="badge gray">🔭 <span class="lang-en">Next (planned)</span><span class="lang-kn">ಮುಂದಿನದು (ಯೋಜನೆ)</span></div>
+          <div class="grid-3" style="margin-top:.6rem;">
+            <div class="card" style="box-shadow:none;">
+              <div class="icon">🎓</div>
+              <div class="card-title">
+                <span class="lang-en">Scholarships</span>
+                <span class="lang-kn">ವಿದ್ಯಾರ್ಥಿ ವೇತನ</span>
+              </div>
+              <p class="card-text">
+                <span class="lang-en">Support for promising students in STEM and Environmental Studies.</span>
+                <span class="lang-kn">STEM ಮತ್ತು ಪರಿಸರ ಅಧ್ಯಯನದಲ್ಲಿರುವ ಪ್ರತಿಭಾವಂತ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಬೆಂಬಲ.</span>
+              </p>
+            </div>
+            <div class="card" style="box-shadow:none;">
+              <div class="icon">🧪</div>
+              <div class="card-title">
+                <span class="lang-en">Science academic support</span>
+                <span class="lang-kn">ವಿಜ್ಞಾನ ಶೈಕ್ಷಣಿಕ ಬೆಂಬಲ</span>
+              </div>
+              <p class="card-text">
+                <span class="lang-en">Workshops, lab exposure, mentorship and practical learning.</span>
+                <span class="lang-kn">ಕಾರ್ಯಾಗಾರಗಳು, ಲ್ಯಾಬ್ ಅನುಭವ, ಮಾರ್ಗದರ್ಶನ ಮತ್ತು ಪ್ರಾಯೋಗಿಕ ಕಲಿಕೆ.</span>
+              </p>
+            </div>
+            <div class="card" style="box-shadow:none;">
+              <div class="icon">📷</div>
+              <div class="card-title">
+                <span class="lang-en">Photography contest</span>
+                <span class="lang-kn">ಛಾಯಾಗ್ರಹಣ ಸ್ಪರ್ಧೆ</span>
+              </div>
+              <p class="card-text">
+                <span class="lang-en">Showcasing nature, conservation and local environmental stories.</span>
+                <span class="lang-kn">ಪ್ರಕೃತಿ, ಸಂರಕ್ಷಣೆ ಮತ್ತು ಸ್ಥಳೀಯ ಪರಿಸರ ಕಥೆಗಳ ಪ್ರದರ್ಶನ.</span>
+              </p>
+            </div>
+          </div>
+
+          <p class="card-text" style="margin-top:12px">
+            <span class="lang-en"><strong>Note:</strong> These are planned initiatives. We will publish timelines as we finalise each program.</span>
+            <span class="lang-kn"><strong>ಸೂಚನೆ:</strong> ಇವು ಯೋಜಿತ ಕಾರ್ಯಕ್ರಮಗಳು. ಪ್ರತಿಯೊಂದರ ಸಮಯಸীমೆ ನಿರ್ಧಾರವಾದಾಗ ಪ್ರಕಟಿಸಲಾಗುತ್ತದೆ.</span>
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT / GET IN TOUCH -->
+    <!-- CONTACT -->
     <section id="contact" class="contact">
       <div class="container">
         <div class="section-eyebrow">
           <span class="lang-en" style="color:#a7f3d0;">Contact</span>
           <span class="lang-kn" style="color:#a7f3d0;">ಸಂಪರ್ಕ</span>
         </div>
+
         <h2 class="section-title" style="color:#e5e7eb;">
-          <span class="lang-en">Partner with us for long-term impact</span>
-          <span class="lang-kn">ದೀರ್ಘಕಾಲಿಕ ಪರಿಣಾಮಕ್ಕಾಗಿ ನಮ್ಮೊಂದಿಗೆ ಕೈ ಜೋಡಿಸಿ</span>
+          <span class="lang-en">Reach out for collaborations and submissions</span>
+          <span class="lang-kn">ಸಹಯೋಗ ಮತ್ತು ಸಲ್ಲಿಕೆಗಾಗಿ ಸಂಪರ್ಕಿಸಿ</span>
         </h2>
+
         <p class="section-sub" style="color:#9ca3af;">
-          <span class="lang-en">
-            We are based in Kodlady, Kundapur taluk (Udupi district), and open to working with schools, colleges, experts and well-wishers across coastal Karnataka.
-          </span>
-          <span class="lang-kn">
-            ನಾವು ಕೊಡ್ಲಾಡಿ, ಕುಂದಾಪುರ ತಾಲ್ಲೂಕು (ಉಡುಪಿ ಜಿಲ್ಲೆ) ಯಲ್ಲಿ ನೆಲೆಸಿದ್ದೇವೆ. ಕರಾವಳಿ ಕರ್ನಾಟಕದ ಶಾಲೆಗಳು, ಕಾಲೇಜುಗಳು, ತಜ್ಞರು ಮತ್ತು ಶುಭಚಿಂತಕರೊಂದಿಗೆ ಸಹಕಾರಕ್ಕಾಗಿ ಸದಾ ತೆರೆದಿದ್ದೇವೆ.
-          </span>
+          <span class="lang-en">Based in Kodlady, Udupi district. We welcome partnerships with schools, colleges, educators and community groups.</span>
+          <span class="lang-kn">ಕೊಡ್ಲಾಡಿ, ಉಡುಪಿ ಜಿಲ್ಲೆ. ಶಾಲೆಗಳು, ಕಾಲೇಜುಗಳು, ಶಿಕ್ಷಕರು ಹಾಗೂ ಸಮುದಾಯ ಗುಂಪುಗಳ ಸಹಕಾರ ಸ್ವಾಗತ.</span>
         </p>
 
         <div class="contact-grid">
           <div class="contact-card">
-            <div class="contact-item">
-              <div class="contact-item-title">
-                <span class="lang-en">Address</span>
-                <span class="lang-kn">ವಿಳಾಸ</span>
+            <div style="margin-bottom:12px;">
+              <div style="font-size:13px;font-weight:800;margin-bottom:4px;">
+                <span class="lang-en">Email</span><span class="lang-kn">ಇಮೇಲ್</span>
               </div>
-              <div class="contact-item-value">
+              <div style="font-size:14px;">contact@sushantrustkodlady.com</div>
+            </div>
+
+            <div style="margin-bottom:12px;">
+              <div style="font-size:13px;font-weight:800;margin-bottom:4px;">
+                <span class="lang-en">Address</span><span class="lang-kn">ವಿಳಾಸ</span>
+              </div>
+              <div style="font-size:14px;color:#e5e7eb;">
                 Kodlady, Kundapur Taluk, Udupi District, Karnataka, India
               </div>
             </div>
-            <div class="contact-item">
-              <div class="contact-item-title">
-                Email
-              </div>
-              <div class="contact-item-value">
-                info@sushantrustkodlady.com
-              </div>
+
+            <div style="font-size:12px;color:#9ca3af;">
+              <span class="lang-en">Tip: For the essay contest, students can email entries to the above address with subject line “Essay Contest – <em>Name</em> – <em>School</em>”.</span>
+              <span class="lang-kn">ಸೂಚನೆ: ಪ್ರಬಂಧ ಸ್ಪರ್ಧೆಗೆ “Essay Contest – <em>ಹೆಸರು</em> – <em>ಶಾಲೆ</em>” ಎಂದು ವಿಷಯ ರೇಖೆಯಲ್ಲಿ ಬರೆಯಲು ಹೇಳಿ.</span>
             </div>
-            <div class="contact-item">
-              <div class="contact-item-title">
-                <span class="lang-en">Phone</span>
-                <span class="lang-kn">ದೂರವಾಣಿ</span>
-              </div>
-              <div class="contact-item-value">
-                +91-XXXXXXXXXX
-              </div>
-            </div>
-            <p style="font-size:12px;color:#9ca3af;margin-top:10px;">
-              <span class="lang-en">For collaborations, institutional partnerships or scholarship details, please write to us.</span>
-              <span class="lang-kn">ಸಹಯೋಗ, ಸಂಸ್ಥಾ ಭಾಗ ಸ್ಫೂರ್ತಿ ಅಥವಾ ವಿದ್ಯಾರ್ಥಿ ವೇತನ ಕುರಿತ ವಿವರಗಳಿಗೆ ದಯವಿಟ್ಟು ಇಮೇಲ್ ಮಾಡಿ.</span>
-            </p>
           </div>
 
           <form class="contact-card" onsubmit="event.preventDefault(); alert('Thank you. We will get back to you soon.');">
             <div style="margin-bottom:12px;">
-              <label>
-                <span class="lang-en">Name</span>
-                <span class="lang-kn">ಹೆಸರು</span>
-              </label>
+              <label><span class="lang-en">Name</span><span class="lang-kn">ಹೆಸರು</span></label>
               <input type="text" name="name" required />
             </div>
             <div style="margin-bottom:12px;">
@@ -758,10 +657,7 @@ body.kn-mode .lang-kn { display: inline; }
               <input type="email" name="email" required />
             </div>
             <div style="margin-bottom:16px;">
-              <label>
-                <span class="lang-en">How would you like to collaborate?</span>
-                <span class="lang-kn">ನೀವು ಹೇಗೆ ಸಹಕರಿಸಲು ಬಯಸುತ್ತೀರಿ?</span>
-              </label>
+              <label><span class="lang-en">Message</span><span class="lang-kn">ಸಂದೇಶ</span></label>
               <textarea name="message" required></textarea>
             </div>
             <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
@@ -773,11 +669,7 @@ body.kn-mode .lang-kn { display: inline; }
         </div>
 
         <footer>
-          <div>
-            © <span id="year"></span> Sushan Trust, Kodlady.
-            <span class="lang-en">All rights reserved.</span>
-            <span class="lang-kn">ಎಲ್ಲ ಹಕ್ಕುಗಳು ಮೀಸಲು.</span>
-          </div>
+          <div>© <span id="year"></span> Sushan Trust, Kodlady.</div>
           <div>
             <span class="lang-en">Education · STEM · Environment</span>
             <span class="lang-kn">ಶಿಕ್ಷಣ · STEM · ಪರಿಸರ</span>
@@ -788,25 +680,19 @@ body.kn-mode .lang-kn { display: inline; }
   </main>
 
   <script>
-    // year in footer
+    // footer year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // language toggle
-const buttons = document.querySelectorAll('.lang-btn');
-buttons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const lang = btn.getAttribute('data-lang');
-
-    // English = remove kn-mode, Kannada = add kn-mode
-    if (lang === 'kn') {
-      document.body.classList.add('kn-mode');
-    } else {
-      document.body.classList.remove('kn-mode');
-    }
-
-    buttons.forEach(b => b.classList.toggle('active', b === btn));
-  });
-});
+    // language toggle (fixed)
+    const buttons = document.querySelectorAll('.lang-btn');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.getAttribute('data-lang');
+        if (lang === 'kn') document.body.classList.add('kn-mode');
+        else document.body.classList.remove('kn-mode');
+        buttons.forEach(b => b.classList.toggle('active', b === btn));
+      });
+    });
   </script>
 </body>
 </html>

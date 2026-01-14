@@ -41,13 +41,38 @@
       background:rgba(245,245,247,.9);
       border-bottom:1px solid rgba(209,213,219,.7);
     }
-    .nav-inner{height:68px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
-    .brand{display:flex;align-items:center;gap:.7rem;min-width:220px}
+ .nav-inner{
+  height:92px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+}
+    .brand{display:flex;align-items:center;gap:.9rem;min-width:auto}
+/* LOGO (header) */
 .logo{
-  height:48px;
+  height:72px;
+  padding:8px 12px;
+  border-radius:16px;
+  background:#ffffff;
+  border:1px solid rgba(229,231,235,.9);
+  box-shadow:0 10px 24px rgba(15,23,42,.06);
   display:flex;
   align-items:center;
   overflow:hidden;
+}
+
+.logo img{
+  height:56px;
+  width:auto;
+  display:block;
+}
+
+/* Responsive: slightly smaller on mobile */
+@media (max-width: 520px){
+  .nav-inner{ height:84px; }
+  .logo{ height:64px; padding:7px 10px; border-radius:14px; }
+  .logo img{ height:50px; }
 }
 
 .logo-wide{
@@ -291,10 +316,9 @@
        <div class="logo logo-wide" aria-label="Sushan Trust logo">
   <img src="sushanlogo.png" alt="Sushan Trust Kodlady logo" />
 </div>
-        <div>
-          <div class="brand-text-main">Sushan Trust</div>
-          <div class="brand-text-sub">Kodlady · Udupi District</div>
-        </div>
+       <div>
+  <div class="brand-text-sub">Kodlady · Udupi District</div>
+</div>
       </a>
 
       <nav class="nav-links" aria-label="Primary navigation">

@@ -117,10 +117,10 @@
       box-shadow:var(--shadow-mid);
       border:1px solid rgba(209,250,229,.9);
     }
-   .mini-grid{
+.mini-grid{
   display:grid;
-  grid-template-columns:1fr;
-  gap:.75rem;
+  grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:1rem;
 }
 @media (min-width: 980px){
   .mini-grid{ grid-template-columns:1fr; }

@@ -49,6 +49,28 @@
   gap:1rem;
 }
     .brand{display:flex;align-items:center;gap:.9rem;min-width:auto}
+    .brand-text{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+
+.brand-mission{
+  font-size:12px;
+  line-height:1.45;
+  color:#065f46;
+  max-width:520px;
+  padding:6px 10px;
+  border-left:3px solid #10b981;
+  background:rgba(16,185,129,.08);
+  border-radius:6px;
+}
+
+@media (max-width: 720px){
+  .brand-mission{
+    display:none;
+  }
+}
 /* LOGO (header) */
 /* LOGO (header) — clean & consistent */
 .logo{
@@ -307,8 +329,14 @@
        <div class="logo" aria-label="Sushan Trust logo">
   <img src="sushanlogo.png" alt="Sushan Trust Kodlady logo" />
 </div>
-       <div>
+
+<div class="brand-text">
   <div class="brand-text-sub">Kodlady · Udupi District</div>
+  <div class="brand-mission lang-kn">
+    ನಮ್ಮ ಪರಿಸರ ಮತ್ತು ಹವಾಮಾನ ಬದಲಾವಣೆಯ ಕುರಿತು ಅರಿವು ಮೂಡಿಸುವ, 
+    ಬುಡ ಮಟ್ಟದಲ್ಲಿ ಕೆಲಸ ಮಾಡುವ ಹಾಗೂ ವೈಜ್ಞಾನಿಕ ಮನೋಭಾವನೆಯ ಶಿಕ್ಷಣಕ್ಕೆ 
+    ಒತ್ತು ಕೊಡುವ ಆಶಯಗಳನ್ನು ಹೊಂದಿರುವ ಸಂಸ್ಥೆ
+  </div>
 </div>
       </a>
 
@@ -406,7 +434,7 @@
           <span class="lang-kn">ಪರಿಚಯ</span>
         </div>
         <h2 class="section-title">
-          <span class="lang-en">Supporting Science and Envt responsibility.</span>
+          <span class="lang-en">Supporting Science and Environmental responsibility.</span>
           <span class="lang-kn">ಮೂಲಭೂತ ವಿಜ್ಞಾನದ ಅಧ್ಯಯನಕ್ಕೆ ಉತ್ತೇಜನ ಮತ್ತು ಪರಿಸರದ ಸಂರಕ್ಷಣೆಗೆ ಒಂದಿಷ್ಟು ಕೆಲಸ!</span>
         </h2>
         <p class="section-sub">

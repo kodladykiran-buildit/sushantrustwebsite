@@ -54,11 +54,29 @@
   flex-direction:column;
   gap:4px;
 }
-.poster-grid{
-  display:grid;
-  grid-template-columns:repeat(2, minmax(0,1fr));
-  gap:12px;
-  margin:14px 0 16px;
+/* Instagram-style poster carousel */
+.poster-carousel{
+  display:flex;
+  gap:14px;
+  overflow-x:auto;
+  padding:8px 4px 12px;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+}
+
+.poster-carousel::-webkit-scrollbar{
+  display:none; /* clean look */
+}
+
+.poster-carousel img{
+  flex:0 0 auto;
+  width:260px;
+  max-width:80vw;
+  border-radius:14px;
+  border:1px solid var(--border);
+  box-shadow:0 12px 28px rgba(15,23,42,.14);
+  scroll-snap-align:start;
+  cursor:pointer;
 }
 
 .poster-grid img{
@@ -554,14 +572,14 @@ border-right:3px solid #10b981;
               </span>
             </div>
             <!-- Essay contest posters -->
-<div class="poster-grid lang-en">
+<div class="poster-carousel lang-en">
   <img src="english1.jpg" alt="Essay Contest Poster English 1" />
   <img src="english2.jpg" alt="Essay Contest Poster English 2" />
   <img src="english3.jpg" alt="Essay Contest Poster English 3" />
   <img src="english4.jpg" alt="Essay Contest Poster English 4" />
 </div>
 
-<div class="poster-grid lang-kn">
+<div class="poster-carousel lang-kn">
   <img src="kannada1.jpg" alt="ಪ್ರಬಂಧ ಸ್ಪರ್ಧೆ ಪೋಸ್ಟರ್ 1" />
   <img src="kannada2.jpg" alt="ಪ್ರಬಂಧ ಸ್ಪರ್ಧೆ ಪೋಸ್ಟರ್ 2" />
   <img src="kannada3.jpg" alt="ಪ್ರಬಂಧ ಸ್ಪರ್ಧೆ ಪೋಸ್ಟರ್ 3" />

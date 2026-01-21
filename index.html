@@ -63,12 +63,11 @@
   scroll-snap-type:x mandatory;
   -webkit-overflow-scrolling:touch;
 }
-/* Ensure carousels stay horizontal even with lang-en/lang-kn classes */
-.poster-carousel.lang-en,
-.poster-carousel.lang-kn{
-  display:flex !important;
-}
 
+<p style="font-size:12px;color:var(--text-muted);margin:6px 0;">
+  <span class="lang-en">Swipe to view posters →</span>
+  <span class="lang-kn">ಪೋಸ್ಟರ್‌ಗಳನ್ನು ನೋಡಲು ಸ್ವೈಪ್ ಮಾಡಿ →</span>
+</p>
 .poster-carousel::-webkit-scrollbar{
   display:none; /* clean look */
 }
@@ -361,8 +360,18 @@ border-right:3px solid #10b981;
     }
 
     /* Language visibility (fixed) */
-    .lang-en{display:inline}
-    .lang-kn{display:none}
+/* Language visibility — SAFE (text only) */
+.lang-en{display:inherit}
+.lang-kn{display:none}
+
+body.kn-mode .lang-en{display:none}
+body.kn-mode .lang-kn{display:inherit}
+
+/* Force text spans inline */
+span.lang-en,
+span.lang-kn{
+  display:inline;
+}
     body.kn-mode .lang-en{display:none}
     body.kn-mode .lang-kn{display:inline}
   </style>

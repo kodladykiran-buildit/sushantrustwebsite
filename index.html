@@ -54,6 +54,27 @@
   flex-direction:column;
   gap:4px;
 }
+.poster-grid{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:12px;
+  margin:14px 0 16px;
+}
+
+.poster-grid img{
+  width:100%;
+  border-radius:12px;
+  border:1px solid var(--border);
+  box-shadow:0 10px 24px rgba(15,23,42,.12);
+  cursor:pointer;
+}
+
+/* Mobile */
+@media (max-width: 640px){
+  .poster-grid{
+    grid-template-columns:1fr;
+  }
+}
 
 .brand-mission{
   font-size:12px;
@@ -525,12 +546,27 @@ border-right:3px solid #10b981;
                   <span class="lang-en">Theme: Environment + responsible habits · Open to schools & PU</span>
                   <span class="lang-kn">ಥೀಮ್: ಪರಿಸರ + ಜವಾಬ್ದಾರಿ ಅಭ್ಯಾಸಗಳು · ಶಾಲೆ/ಪಿಯು ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ</span>
                 </div>
+                
               </div>
               <span class="badge gray">
                 <span class="lang-en">Open call</span>
                 <span class="lang-kn">ಅರ್ಜಿಗಳು ತೆರೆಯಲಾಗಿದೆ</span>
               </span>
             </div>
+            <!-- Essay contest posters -->
+<div class="poster-grid lang-en">
+  <img src="english1.jpg" alt="Essay Contest Poster English 1" />
+  <img src="english2.jpg" alt="Essay Contest Poster English 2" />
+  <img src="english3.jpg" alt="Essay Contest Poster English 3" />
+  <img src="english4.jpg" alt="Essay Contest Poster English 4" />
+</div>
+
+<div class="poster-grid lang-kn">
+  <img src="kannada1.jpg" alt="ಪ್ರಬಂಧ ಸ್ಪರ್ಧೆ ಪೋಸ್ಟರ್ 1" />
+  <img src="kannada2.jpg" alt="ಪ್ರಬಂಧ ಸ್ಪರ್ಧೆ ಪೋಸ್ಟರ್ 2" />
+  <img src="kannada3.jpg" alt="ಪ್ರಬಂಧ ಸ್ಪರ್ಧೆ ಪೋಸ್ಟರ್ 3" />
+  <img src="kannada4.jpg" alt="ಪ್ರಬಂಧ ಸ್ಪರ್ಧೆ ಪೋಸ್ಟರ್ 4" />
+</div>
 
             <p class="card-text">
               <span class="lang-en">

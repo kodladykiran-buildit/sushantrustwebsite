@@ -63,6 +63,11 @@
   scroll-snap-type:x mandatory;
   -webkit-overflow-scrolling:touch;
 }
+/* Ensure carousels stay horizontal even with lang-en/lang-kn classes */
+.poster-carousel.lang-en,
+.poster-carousel.lang-kn{
+  display:flex !important;
+}
 
 .poster-carousel::-webkit-scrollbar{
   display:none; /* clean look */
@@ -70,8 +75,8 @@
 
 .poster-carousel img{
   flex:0 0 auto;
-  width:260px;
-  max-width:80vw;
+  width:340px;
+  max-width:90vw;
   border-radius:14px;
   border:1px solid var(--border);
   box-shadow:0 12px 28px rgba(15,23,42,.14);

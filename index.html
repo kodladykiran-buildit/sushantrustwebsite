@@ -117,6 +117,9 @@
   cursor:pointer;
 }
 
+.card{ overflow:hidden; }              /* prevents weird spill */
+.poster-carousel{ width:100%; }
+
 /* Mobile */
 @media (max-width: 640px){
   .poster-grid{
@@ -384,29 +387,18 @@ border-right:3px solid #10b981;
       font-size:12px;color:#9ca3af;
       display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
     }
-
-    /* Language visibility (fixed) */
-/* Language visibility — SAFE (text only) */
-.lang-en{display:inherit}
-.lang-kn{display:none}
-
-body.kn-mode .lang-en{display:none}
-/* Language visibility — robust for div/span/etc */
+    @media (max-width: 640px){
+  .insta-bar-inner{ flex-direction:column; align-items:flex-start; }
+  .insta-link{ width:100%; justify-content:space-between; }
+}
+/* Language visibility — single source of truth */
 .lang-en, .lang-kn { display: none !important; }
 
 /* Default = English */
-body:not(.kn-mode) .lang-en { display: revert !important; }
+body:not(.kn-mode) .lang-en { display: unset !important; }
 
 /* Kannada mode */
-body.kn-mode .lang-kn { display: revert !important; }
-
-/* Force text spans inline */
-span.lang-en,
-span.lang-kn{
-  display:inline;
-}
-    body.kn-mode .lang-en{display:none}
-    body.kn-mode .lang-kn{display:inline}
+body.kn-mode .lang-kn { display: unset !important; }
 
     /* FINAL OVERRIDE: force poster carousels to be horizontal */
 #programs .poster-carousel{
@@ -436,22 +428,19 @@ span.lang-kn{
 }
   </style>
 </head>
-<div class="insta-bar">
-  <div class="container insta-bar-inner">
-    <div>
-      <span class="lang-en"><strong>We post regular updates on Instagram.</strong> Follow for the latest programs & photos.</span>
-      <span class="lang-kn"><strong>ಇನ್‌ಸ್ಟಾಗ್ರಾಂನಲ್ಲಿ ನಾವು ನಿಯಮಿತ ಅಪ್‌ಡೇಟ್‌ಗಳನ್ನು ಹಾಕುತ್ತೇವೆ.</strong> ಕಾರ್ಯಕ್ರಮಗಳು/ಚಿತ್ರಗಳಿಗಾಗಿ ಫಾಲೋ ಮಾಡಿ.</span>
-    </div>
-
-    <a class="insta-link" href="https://www.instagram.com/sushantrust_kodlady/" target="_blank" rel="noopener">
-      <span class="lang-en">Open Instagram</span>
-      <span class="lang-kn">ನಮ್ಮ ಇನ್ಸ್ಟಾಗ್ರಾಮ್ ಲಿಂಕ್: </span>
-      <span class="insta-handle">@sushantrust_kodlady</span>
-    </a>
-  </div>
-</div>
 
 <body>
+  <!-- NAVBAR -->
+  <header class="nav">
+    ...
+  </header>
+
+  <!-- Instagram bar (must be inside body) -->
+  <div class="insta-bar">
+    <div class="container insta-bar-inner">
+      ...
+    </div>
+  </div>
   <!-- NAVBAR -->
   <header class="nav">
     <div class="container nav-inner">
@@ -933,6 +922,37 @@ span.lang-kn{
         buttons.forEach(b => b.classList.toggle('active', b === btn));
       });
     });
+    // poster carousel drag-scroll (desktop)
+document.querySelectorAll('.poster-carousel').forEach(carousel => {
+  let isDown = false, startX = 0, scrollLeft = 0;
+
+  carousel.addEventListener('mousedown', (e) => {
+    isDown = true;
+    carousel.style.cursor = 'grabbing';
+    startX = e.pageX - carousel.getBoundingClientRect().left;
+    scrollLeft = carousel.scrollLeft;
+  });
+
+  window.addEventListener('mouseup', () => {
+    isDown = false;
+    carousel.style.cursor = 'grab';
+  });
+
+  carousel.addEventListener('mouseleave', () => {
+    isDown = false;
+    carousel.style.cursor = 'grab';
+  });
+
+  carousel.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - carousel.getBoundingClientRect().left;
+    const walk = (x - startX) * 1.2;
+    carousel.scrollLeft = scrollLeft - walk;
+  });
+
+  carousel.style.cursor = 'grab';
+});
   </script>
 </body>
 </html>
